@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evergreen Real Estate Media - বিশ্বাস • স্বচ্ছতা • সফল বিনিয়োগ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            850: '#064e3b',
+                            900: '#022c22',
+                            950: '#011c15',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- --- TOP BRAND BAR --- -->
+    <div class="bg-gradient-to-r from-emerald-900 to-emerald-850 text-white text-xs md:text-sm py-2 px-4 shadow-sm border-b border-emerald-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2 md:gap-4 font-medium text-center md:text-left">
+                <span class="bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse">নতুন বাজেট আপডেট</span>
+                <p>২০২৫-২৬ অর্থবছরে জমি রেজিস্ট্রেশন ও ট্যাক্স হ্রাস! এখন শতাংশের হিসেবে ট্যাক্স প্রদান করুন।</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:01947-822399" class="hover:text-amber-300 transition duration-150 flex items-center gap-1 font-semibold">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400"></i> ০১৯৪৭-৮২২৩৯৯
+                </a>
+                <span class="hidden md:inline text-slate-400">|</span>
+                <a href="tel:+8801969149711" class="hover:text-amber-300 transition duration-150 hidden md:flex items-center gap-1 font-semibold">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400"></i> +৮৮০ ১৯৬৯-১৪৯৭১১
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- PREMIUM HEADER --- -->
+    <header class="bg-white sticky top-0 z-40 border-b border-slate-100 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
+            
+            <!-- Logo Brand Component -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="changeTab('home')">
+                <div class="relative p-2.5 bg-gradient-to-tr from-emerald-800 to-emerald-600 text-white rounded-xl shadow-lg shadow-emerald-700/20">
+                    <i data-lucide="layers" class="w-6 h-6 animate-spin-slow"></i>
+                    <div class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full border-2 border-white"></div>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-black text-emerald-900 tracking-tight leading-none uppercase">
+                        EVERGREEN <span class="text-amber-500 text-sm md:text-base block font-bold tracking-widest mt-1">REAL ESTATE MEDIA</span>
+                    </h1>
+                    <span class="text-[10px] md:text-xs text-emerald-700 font-bold tracking-wide mt-1 block">বিশ্বাস • স্বচ্ছতা • সফল বিনিয়োগ</span>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-1">
+                <button onclick="changeTab('home')" id="nav-home" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-emerald-800 bg-emerald-50 border-b-2 border-emerald-600 font-bold transition">
+                    <i data-lucide="home" class="w-4 h-4"></i>হোমপেজ
+                </button>
+                <button onclick="changeTab('properties')" id="nav-properties" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="search" class="w-4 h-4"></i>নিরাপদ প্রোপার্টিজ
+                </button>
+                <button onclick="changeTab('calculator')" id="nav-calculator" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="calculator" class="w-4 h-4"></i>বাজেট ক্যালকুলেটর
+                </button>
+                <button onclick="changeTab('agro')" id="nav-agro" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="award" class="w-4 h-4"></i>এগ্রো ট্রেনিং
+                </button>
+                <button onclick="changeTab('medical')" id="nav-medical" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="activity" class="w-4 h-4"></i>মেডিকেল কোর্স
+                </button>
+                <button onclick="changeTab('feed')" id="nav-feed" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>দেশবন্ধু ফিড
+                </button>
+                <button onclick="changeTab('contact')" id="nav-contact" class="nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>যোগাযোগ ও ভেরিফিকেশন
+                </button>
+            </nav>
+
+            <!-- Right Action Button & Cart Indicator -->
+            <div class="hidden lg:flex items-center gap-4">
+                <button onclick="changeTab('feed')" id="cart-indicator-btn" class="relative p-2.5 text-emerald-800 hover:bg-emerald-50 rounded-xl transition duration-150 hidden">
+                    <i data-lucide="shopping-cart" class="w-[22px] h-[22px]"></i>
+                    <span id="cart-count-badge" class="absolute top-0 right-0 w-5 h-5 bg-amber-500 text-slate-950 font-bold rounded-full text-xs flex items-center justify-center animate-bounce">0</span>
+                </button>
+                <button onclick="changeTab('contact')" class="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white font-bold text-sm px-5 py-3 rounded-xl shadow-md hover:from-emerald-800 hover:to-emerald-700 transition duration-200 transform active:scale-95">
+                    আজই রেজিস্ট্রেশন করুন
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <div class="flex items-center gap-3 lg:hidden">
+                <button onclick="changeTab('feed')" id="mobile-cart-btn" class="relative p-2 text-emerald-800 hover:bg-emerald-50 rounded-lg hidden">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                    <span id="mobile-cart-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-amber-500 text-slate-950 font-bold rounded-full text-[10px] flex items-center justify-center">0</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-2 text-slate-600 hover:text-emerald-800 hover:bg-slate-100 rounded-lg">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- MOBILE DRAWER --- -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 py-4 px-4 shadow-lg sticky top-20 z-30 animate-fade-in">
+        <div class="flex flex-col gap-2">
+            <button onclick="changeTab('home')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold bg-emerald-600 text-white shadow-md">
+                <i data-lucide="home" class="w-[18px] h-[18px]"></i>হোমপেজ
+            </button>
+            <button onclick="changeTab('properties')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="search" class="w-[18px] h-[18px]"></i>নিরাপদ প্রোপার্টিজ
+            </button>
+            <button onclick="changeTab('calculator')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="calculator" class="w-[18px] h-[18px]"></i>বাজেট ক্যালকুলেটর
+            </button>
+            <button onclick="changeTab('agro')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="award" class="w-[18px] h-[18px]"></i>এগ্রো ট্রেনিং পোর্টাল
+            </button>
+            <button onclick="changeTab('medical')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="activity" class="w-[18px] h-[18px]"></i>মেডিকেল পল্লী চিকিৎসা
+            </button>
+            <button onclick="changeTab('feed')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="shopping-cart" class="w-[18px] h-[18px]"></i>দেশবন্ধু ফিড শপ
+            </button>
+            <button onclick="changeTab('contact')" class="mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800">
+                <i data-lucide="shield-check" class="w-[18px] h-[18px]"></i>যোগাযোগ ও দলিলাদি যাচাই
+            </button>
+            <div class="mt-4 pt-4 border-t border-slate-100">
+                <button onclick="changeTab('contact')" class="w-full bg-amber-500 text-slate-950 font-black py-3 rounded-xl text-center shadow-md hover:bg-amber-600 transition">
+                    রেজিস্ট্রেশন করুন আজই
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PORTAL WRAPPER -->
+    <main class="flex-grow">
+        
+        <!-- ================= HOMEPAGE TAB ================= -->
+        <section id="tab-home" class="tab-content active">
+            <!-- Hero Dynamic Presentation Banner -->
+            <div class="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 text-white overflow-hidden py-16 md:py-24 px-4">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-emerald-800/60 border border-emerald-700/50 px-4 py-1.5 rounded-full text-xs md:text-sm text-emerald-300 font-bold">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
+                            <span>১০০% মালিকানা যাচাইকৃত ও আইনি ঝুঁকিমুক্ত ল্যান্ডিং হাব</span>
+                        </div>
+                        
+                        <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-tight md:leading-none text-white">
+                            নিরাপদ জমি, <br class="hidden md:inline" />
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">নিশ্চিত ভবিষ্যৎ</span>
+                        </h2>
+                        
+                        <p class="text-slate-300 text-base md:text-lg max-w-xl leading-relaxed">
+                            আবাসিক, বাণিজ্যিক বা শিল্প প্রকল্পের জন্য গাজীপুর অঞ্চলে আপনার পছন্দের লোকেশনে ও বাজেটে যাচাইকৃত সম্পত্তি খুঁজে পেতে কাজ করছে আমাদের অভিজ্ঞ ইনভেস্টিগেশন টিম।
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="changeTab('properties')" class="bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 font-black px-8 py-4 rounded-xl shadow-lg hover:from-amber-600 hover:to-amber-500 transition duration-200 transform hover:-translate-y-0.5">
+                                নিরাপদ জমি খুঁজুন
+                            </button>
+                            <button onclick="changeTab('calculator')" class="bg-emerald-800/80 border border-emerald-600 text-white font-bold px-6 py-4 rounded-xl hover:bg-emerald-700 transition duration-150 flex items-center gap-2">
+                                <i data-lucide="calculator" class="w-[18px] h-[18px]"></i>
+                                রেজিস্ট্রি খরচ গণনা করুন
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-6 pt-8 border-t border-emerald-800/60 text-slate-300">
+                            <div>
+                                <h4 class="text-2xl md:text-3xl font-black text-white">১০০%</h4>
+                                <p class="text-xs text-slate-400">নির্দোষ দলিলাদি</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl md:text-3xl font-black text-white">৫টি</h4>
+                                <p class="text-xs text-slate-400">গাজীপুরের প্রধান জোন</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl md:text-3xl font-black text-white">১০০০+</h4>
+                                <p class="text-xs text-slate-400">সফল উদ্যোক্তা তৈরি</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-[400px] lg:max-w-none">
+                            <div class="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-emerald-500/20 rounded-3xl blur-2xl transform rotate-6"></div>
+                            <div class="relative bg-gradient-to-b from-slate-800 to-slate-900 border border-emerald-500/30 p-4 rounded-3xl shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Evergreen Real Estate visual representation" class="rounded-2xl w-full object-cover h-64 md:h-80 shadow-md border border-slate-700" />
+                                <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black p-4 rounded-2xl shadow-xl flex items-center gap-3">
+                                    <i data-lucide="award" class="w-9 h-9 text-slate-950"></i>
+                                    <div>
+                                        <p class="text-xs text-amber-950 font-bold">বিশ্বস্ত অংশীদার</p>
+                                        <p class="text-sm">এভারগ্রিন মিডিয়া</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Strategic Synergy Ecosystem Section -->
+            <div class="py-16 px-4 max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">ইউনিক ব্যবসায়িক লুপ</span>
+                    <h3 class="text-3xl md:text-4xl font-black mt-3 text-slate-900">এভারগ্রিন সমন্বিত এগ্রো-মেডিকেল ইকোসিস্টেম</h3>
+                    <p class="text-slate-600 mt-3 text-sm md:text-base leading-relaxed font-semibold">
+                        আমরা শুধু জমি কেনাবেচায় সীমাবদ্ধ নই। আমাদের লক্ষ্য উদ্যোক্তা তৈরি করে টেকসই উন্নয়ন সাধন করা। আমাদের সিস্টার কনসার্নগুলোর সমন্বয় নিচে দেখুন:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition duration-200 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-emerald-500/10">০১</div>
+                            <h4 class="text-lg font-black text-slate-800">নিরাপদ খামারের জমি</h4>
+                            <p class="text-sm text-slate-600">এভারগ্রিন ইনভেস্টিগেশন টিম দ্বারা শতভাগ নিখুঁত আবাসিক/বাণিজ্যিক/শিল্প বা এগ্রো প্রকল্পের জমি সংগ্রহ।</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center text-xs text-emerald-700 font-bold">
+                            <span>এভারগ্রিন রিয়েল এস্টেট</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition duration-200 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-emerald-500/10">০২</div>
+                            <h4 class="text-lg font-black text-slate-800">উদ্যোক্তা ও দক্ষ প্রশিক্ষণ</h4>
+                            <p class="text-sm text-slate-600">বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশনের অধীনে ৪ মাসের আধুনিক খামার ও মৎস্য চাষে হাতে-কলমে শিক্ষা।</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center text-xs text-emerald-700 font-bold">
+                            <span>কৃষি ও মেডিকেল উইং</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition duration-200 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-emerald-500/10">০৩</div>
+                            <h4 class="text-lg font-black text-slate-800">দেশবন্ধু উচ্চ-মানের ফিড</h4>
+                            <p class="text-sm text-slate-600">আপনার উৎপাদিত খামারের মৎস্য বা মুরগির জন্য সরাসরি নিজস্ব কারখানা উৎপাদিত দেশবন্ধু এগ্রো ফিড সরবরাহ ও মুনাফা সাশ্রয়।</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center text-xs text-emerald-700 font-bold">
+                            <span>দেশবন্ধু এগ্রো ফিড</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-gradient-to-br from-emerald-800 to-emerald-950 text-white rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-lg">০৪</div>
+                            <h4 class="text-lg font-black text-amber-300">ঋণ সহায়তা ও আত্মনির্ভরশীল</h4>
+                            <p class="text-sm text-slate-300">প্রশিক্ষণ শেষে সহজ শর্তে ব্যাংক থেকে উদ্যোক্তা বা ডেইরি/পোল্ট্রি শেড স্থাপনে ব্যাংক ঋণ গ্রহণে এভারগ্রিনের বিশেষ পরামর্শ ও সহায়তা।</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-emerald-700/50 flex justify-between items-center text-xs text-amber-300 font-bold">
+                            <span>সফল উদ্যোক্তা প্রজেক্ট</span>
+                            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-emerald-50 rounded-2xl p-6 md:p-8 border border-emerald-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="space-y-2">
+                        <h4 class="text-emerald-950 font-black text-lg">ক্লোজড-লুপ ইন্টিগ্রেটেড প্রফিট মডেল (Closed-Loop System Formula)</h4>
+                        <p class="text-xs md:text-sm text-emerald-800 leading-relaxed max-w-2xl">
+                            আমরা আমাদের রিয়েল এস্টেট ক্রেতাদের দক্ষ প্রশিক্ষিত খামারীতে রূপান্তরিত করি এবং দেশবন্ধু ফিড সরবরাহের মাধ্যমে আজীবন সর্বোচ্চ মুনাফা (System Yield) ও নিরাপত্তা নিশ্চিত করি।
+                        </p>
+                    </div>
+                    <div class="bg-white px-6 py-4 rounded-xl border border-emerald-200 shadow-sm text-center font-mono">
+                        <span class="text-slate-400 text-[10px] block uppercase font-sans font-bold">সিস্টেম মুনাফা সূত্র</span>
+                        <span class="text-emerald-800 font-black text-sm md:text-base">
+                            P_integrated = ∑ (L_i + T_i + F_i + C_i) - C_acq
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Features - Services Banner -->
+            <div class="bg-white py-16 border-t border-slate-100">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">আমাদের সেবাসমূহ</span>
+                        <h3 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">স্বপ্নের ঠিকানা গড়ার বিশ্বস্ত ও দায়িত্বশীল অংশীদার</h3>
+                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                            গাজীপুরের অন্যতম অগ্রগামী রিয়েল এস্টেট প্ল্যাটফর্ম হিসেবে আমরা আইনি ঝুঁকি এড়াতে সর্বোচ্চ পেশাদারিত্ব নিশ্চিত করি।
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>পছন্দের লোকেশনে নিরাপদ জমি নির্বাচন</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>শতভাগ যাচাইকৃত ও বৈধ কাগজপত্র</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>ন্যায্য ও বাজারসম্মত মূল্যের নিশ্চয়তা</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>অভিজ্ঞ ইনভেস্টিগেশন টিম দ্বারা দলিল যাচাই</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>ক্রয়-বিক্রয়ে পূর্ণাঙ্গ আইনি পরামর্শ</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                <i data-lucide="check-circle" class="text-emerald-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                                <span>প্রতারণা ও আইনি ঝুঁকি থেকে নিরাপত্তা</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex gap-4">
+                            <button onclick="changeTab('properties')" class="bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl hover:bg-emerald-800 transition">
+                                আমাদের প্রোপার্টি সমূহ
+                            </button>
+                            <button onclick="changeTab('contact')" class="text-emerald-700 hover:bg-emerald-50 px-4 py-3 rounded-xl transition font-bold">
+                                যোগাযোগ করুন
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center mb-3">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                                <h5 class="font-black text-slate-800 text-base">১০০% ভেরিফাইড</h5>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">জাল দলিল সনাক্তে আমাদের ইনভেস্টিগেশন উইং সর্বদা কাজ করে।</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <div class="w-10 h-10 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center mb-3">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                </div>
+                                <h5 class="font-black text-slate-800 text-base">দ্রুত সাবমিশন</h5>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">অনলাইন মিউটেশন ও নামজারি মাত্র অল্প সময়ে নিশ্চিত করা হয়।</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-6">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-800 text-white flex items-center justify-center mb-3">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                </div>
+                                <h5 class="font-black text-slate-800 text-base">উচ্চ মুনাফা</h5>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">শিল্প হাব ও রাজউক রোড সংলগ্ন ভবিষ্যৎ লাভজনক জমি প্রদান।</p>
+                            </div>
+                            <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center mb-3">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <h5 class="font-black text-slate-800 text-base">সরকারি লাইসেন্স</h5>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">REHAB ও ল্যান্ড অথরিটি গাইডলাইন সম্পূর্ণ অনুসরনকারী।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROPERTIES TAB ================= -->
+        <section id="tab-properties" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">প্রোপার্টি ডেটাবেজ</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">গাজীপুরের যাচাইকৃত নিরাপদ জমি ও প্লটসমূহ</h2>
+                <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+                    নিচের প্রোপার্টিগুলো আমাদের অভিজ্ঞ আইনি ইনভেস্টিগেশন টিম দ্বারা দলিলাদি ও রেজিস্ট্রি সম্পন্ন করার পূর্বে শতভাগ মালিকানা নিশ্চিত করা হয়েছে।
+                </p>
+            </div>
+
+            <!-- Filters bar -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Category selector -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                    <button onclick="filterProperties('all')" id="filter-all" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-emerald-600 text-white shadow-sm">সকল ক্যাটাগরি</button>
+                    <button onclick="filterProperties('residential')" id="filter-residential" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-slate-50 text-slate-600 hover:bg-slate-100">আবাসিক প্লট</button>
+                    <button onclick="filterProperties('commercial')" id="filter-commercial" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-slate-50 text-slate-600 hover:bg-slate-100">বাণিজ্যিক স্পেস</button>
+                    <button onclick="filterProperties('industrial')" id="filter-industrial" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-slate-50 text-slate-600 hover:bg-slate-100">শিল্প প্রকল্প</button>
+                </div>
+
+                <!-- Search field -->
+                <div class="relative w-full md:w-80">
+                    <input type="text" id="prop-search" oninput="searchProperties()" placeholder="লোকেশন বা অঞ্চল দিয়ে খুঁজুন..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" />
+                    <i data-lucide="search" class="absolute left-3.5 top-3 text-slate-400 w-4 h-4"></i>
+                </div>
+            </div>
+
+            <!-- Property Grid container -->
+            <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically Rendered by JS -->
+            </div>
+            
+            <div id="no-properties-msg" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-100 p-8 space-y-4 max-w-lg mx-auto mt-8">
+                <i data-lucide="alert-circle" class="text-amber-500 mx-auto w-12 h-12"></i>
+                <h4 class="font-black text-slate-800 text-lg">দুঃখিত, কোনো সম্পত্তি পাওয়া যায়নি!</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">আপনার কাঙ্ক্ষিত নির্দিষ্ট লোকেশন বা বাজেটটি আমাদের ইনভেস্টিগেশন টিমকে জানাতে সরাসরি রেজিস্ট্রেশন ফর্মটি পূরণ করুন।</p>
+                <button onclick="changeTab('contact')" class="bg-emerald-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">আপনার জমির চাহিদা জানান</button>
+            </div>
+        </section>
+
+        <!-- ================= REGISTRY CALCULATOR TAB ================= -->
+        <section id="tab-calculator" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">আইনি ও আর্থিক টুলস</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">২০২৫-২৬ সংশোধিত ল্যান্ড রেজিস্ট্রি খরচ ক্যালকুলেটর</h2>
+                <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+                    বাংলাদেশ সরকারের নতুন বাজেটীয় বিধি অনুযায়ী ২% পর্যন্ত রেজিস্ট্রেশন ট্যাক্স হ্রাস এবং ক্যাপিটাল গেইন্স (উৎসে কর) এলাকাভিত্তিক যথাক্রমে ৮% থেকে কমিয়ে ৬%, ৪% ও ৩% নির্ধারণ করা হয়েছে। নিচে আপনার জমির মূল্য দিয়ে নতুন সাশ্রয়ের হিসাব দেখুন।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Inputs Panel -->
+                <div class="lg:col-span-5 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                    <h4 class="font-black text-slate-800 text-lg flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <i data-lucide="calculator" class="text-emerald-600 w-5 h-5"></i>
+                        <span>জমির আর্থিক হিসাব</span>
+                    </h4>
+
+                    <div class="space-y-4">
+                        <!-- Land value -->
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-slate-600 block">জমির ঘোষিত মূল্য (দলিলে উল্লেখিত মূল্য BDT):</label>
+                            <div class="relative">
+                                <input type="number" id="land-value-input" value="5000000" oninput="calculateRegistry()" class="w-full border border-slate-200 pl-12 pr-4 py-3 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                                <span class="absolute left-3.5 top-3.5 text-slate-400 font-bold text-xs">BDT</span>
+                            </div>
+                            <span id="land-value-bn-word" class="text-[10px] text-emerald-700 block mt-1">অনুমান: ৫০,০০,০০০ টাকা</span>
+                        </div>
+
+                        <!-- Area type for Capital gains tax -->
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-slate-600 block">জমির প্রকৃতি ও এলাকার ক্যাটাগরি:</label>
+                            <div class="grid grid-cols-1 gap-2">
+                                <label onclick="setCalculatorZone('commercial')" class="flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition bg-emerald-50/50 border-emerald-500" id="calc-zone-commercial">
+                                    <input type="radio" name="calc-zone" checked class="mt-1 accent-emerald-600" />
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">উচ্চ বাণিজ্যিক জোন (যেমন: গাজীপুর চৌরাস্তা/ধীরাশ্রম হাইওয়ে)</span>
+                                        <span class="text-[10px] text-emerald-700 block mt-0.5">২০২৫-২৬ উৎস কর: ৬% (পূর্বে ছিল ৮%)</span>
+                                    </div>
+                                </label>
+                                <label onclick="setCalculatorZone('municipal')" class="flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition border-slate-200 hover:bg-slate-50" id="calc-zone-municipal">
+                                    <input type="radio" name="calc-zone" class="mt-1 accent-emerald-600" />
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">পৌরসভা/সিটি কর্পোরেশন অঞ্চল (যেমন: গাজীপুর সদর/কোনাবাড়ি)</span>
+                                        <span class="text-[10px] text-emerald-700 block mt-0.5">২০২৫-২৬ উৎস কর: ৪% (পূর্বে ছিল ৬%)</span>
+                                    </div>
+                                </label>
+                                <label onclick="setCalculatorZone('rural')" class="flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition border-slate-200 hover:bg-slate-50" id="calc-zone-rural">
+                                    <input type="radio" name="calc-zone" class="mt-1 accent-emerald-600" />
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">ইউনিয়ন/প্রত্যন্ত গ্রামীণ অঞ্চল (যেমন: কাপাসিয়া/কালিয়াকৈর জোন)</span>
+                                        <span class="text-[10px] text-emerald-700 block mt-0.5">২০২৫-২৬ উৎস কর: ৩% (পূর্বে ছিল ৪%)</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 flex items-start gap-2.5">
+                        <i data-lucide="alert-circle" class="text-amber-600 shrink-0 mt-0.5 w-[18px] h-[18px]"></i>
+                        <p class="text-[10px] text-amber-900 leading-relaxed">
+                            <strong>বিঃদ্রঃ:</strong> উপরোক্ত হিসাবগুলো সোনালী ব্যাংক ট্রেজারি চালানের মাধ্যমে সরাসরি সাব-রেজিস্ট্রার অফিসে প্রদানের আইনানুগ চার্জ। দলিল লেখক বা কমিশন লেখক ফি এবং সাব-রেজিস্ট্রির আনুষঙ্গিক ই-ফি (E-fee, N-fee) এর বাইরে থাকে।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Outputs Panel / Visualization -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-slate-900 text-white p-6 md:p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                          <div>
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block">রেজিস্ট্রি ব্যয়ের বাজেট তুলনামূলক হিসাব</span>
+                            <h4 class="text-lg md:text-xl font-black mt-1">২০২৫-২৬ অর্থবছরের বাজেট বনাম পূর্ববর্তী বাজেট</h4>
+                          </div>
+                          <span class="bg-emerald-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-1 rounded-full animate-bounce">সরাসরি সাশ্রয়</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 text-center">
+                            <span class="text-slate-400 text-xs block">আগের বাজেটে মোট খরচ (২০২৪-২৫)</span>
+                            <span id="prev-total-cost" class="text-xl md:text-2xl font-black text-rose-400 block mt-2">০ ৳</span>
+                          </div>
+
+                          <div class="bg-emerald-950/70 p-4 rounded-2xl border border-emerald-500/30 text-center">
+                            <span class="text-emerald-300 text-xs block">নতুন বাজেটে মোট খরচ (২০২৫-২৬)</span>
+                            <span id="new-total-cost" class="text-xl md:text-2xl font-black text-emerald-400 block mt-2">০ ৳</span>
+                          </div>
+                        </div>
+
+                        <!-- Direct Savings Callout -->
+                        <div class="bg-gradient-to-r from-emerald-800 to-emerald-900 p-5 rounded-2xl text-center border border-emerald-600/50">
+                          <span class="text-amber-300 text-xs font-black uppercase tracking-wider block">আপনার সরাসরি নগদ লাভ / কর সাশ্রয়:</span>
+                          <span id="direct-savings" class="text-2xl md:text-3xl font-black text-white block mt-1">০ ৳</span>
+                          <p class="text-[10px] text-emerald-200 mt-1">(উৎস কর সর্বোচ্চ ২% কমে যাওয়ায় আপনার দলিলের মোট রেজিস্ট্রেশন খরচ প্রায় ৪০% পর্যন্ত কমছে!)</p>
+                        </div>
+
+                        <!-- Breakdown Details -->
+                        <div class="space-y-3 pt-2">
+                          <h5 class="text-slate-300 font-bold text-xs border-b border-slate-800 pb-1.5 uppercase">বিস্তারিত খরচের বিবরণী (২০২৫-২৬):</h5>
+                          <div class="space-y-2 text-xs md:text-sm">
+                            <div class="flex justify-between">
+                              <span class="text-slate-400">১. স্ট্যাম্প ডিউটি ফি (১.৫%):</span>
+                              <span id="stamp-duty-val" class="font-semibold text-slate-200">০ ৳</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-slate-400">২. দলিল সাব-রেজিস্ট্রেশন ফি (১%):</span>
+                              <span id="reg-fee-val" class="font-semibold text-slate-200">০ ৳</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-slate-400">৩. স্থানীয় সরকার ফি (এলাকাভেদে ২% বা ৩%):</span>
+                              <span id="local-gov-val" class="font-semibold text-slate-200">০ ৳</span>
+                            </div>
+                            <div class="flex justify-between border-t border-slate-800 pt-2 text-amber-300 font-bold">
+                              <span>৪. সংশোধিত উৎসে কর / গেইন ট্যাক্স (Capital Gains):</span>
+                              <span id="gain-tax-val">০ ৳</span>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                        <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+                          <i data-lucide="shield-check" class="text-emerald-600 w-5 h-5"></i>
+                          <span>জমির রেজিস্ট্রেশনের আগে করণীয় ৪টি আইনানুগ চেক:</span>
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700 leading-relaxed">
+                          <div class="space-y-1">
+                            <p class="font-bold text-emerald-700">১. দলিলের চেইন ভেরিফিকেশন:</p>
+                            <p>নিশ্চিত করুন সিএস, এসএ, আরএস এবং সর্বশেষ বিএস রেকর্ড অনুযায়ী জমির মালিকানার পরম্পরা বা ধারাবাহিকতা বৈধ রয়েছে কিনা।</p>
+                          </div>
+                          <div class="space-y-1">
+                            <p class="font-bold text-emerald-700">২. নামজারি ও জমাভাগ চেক:</p>
+                            <p> canবিসিবিএস এবং নামজারি কপি ভূমি সহকারী কর্মকর্তার কার্যালয় থেকে মিলিয়ে নেওয়া উচিত।</p>
+                          </div>
+                          <div class="space-y-1">
+                            <p class="font-bold text-emerald-700">৩. অর্পিত ও খাস সম্পত্তি মুক্তি:</p>
+                            <p>প্রস্তাবিত জমিটি কোনো সরকারি অর্পিত, খাস বা বন বিভাগের সংরক্ষিত বনের সীমানার মধ্যে অন্তর্ভুক্ত নয় তা ভূমি অফিস থেকে নিশ্চিত করুন।</p>
+                          </div>
+                          <div class="space-y-1">
+                            <p class="font-bold text-emerald-700">৪. এভারগ্রিন ইনভেস্টিগেশন টিম সাপোর্ট:</p>
+                            <p>আপনার জমি ক্রয়ের পূর্বে আমাদের টিম দলিলাদির সত্যতা সাব-রেজিস্ট্রি এবং ভূমি রেকর্ড অফিস থেকে সরাসরি যাচাই করে আইনি গ্যারান্টি দেয়।</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= AGRO TRAINING PORTAL TAB ================= -->
+        <section id="tab-agro" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশন</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">আধুনিক কৃষি খামার প্রশিক্ষণ পোর্টাল</h2>
+                <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+                    ৪ মাস মেয়াদি সরাসরি হাতে-কলমে আধুনিক পোল্ট্রি, মাছ চাষ ও ডেইরি ফার্মিং বিষয়ক প্রশিক্ষণ। প্রশিক্ষণ শেষে ব্যাংক লোন প্রাপ্তি ও সফল খামারী উদ্যোক্তা হিসেবে গড়ে উঠতে আমরা পূর্ণাঙ্গ সহায়তা প্রদান করি।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="agro-courses-grid">
+                <!-- Courses injected via script -->
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl p-6 md:p-10 text-slate-950 flex flex-col md:flex-row justify-between items-center gap-8 shadow-xl">
+              <div class="space-y-2 text-center md:text-left">
+                <span class="bg-slate-950 text-amber-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-full">বিশেষ আকর্ষণ</span>
+                <h4 class="text-2xl md:text-3xl font-black">প্রশিক্ষণ শেষে সহজ শর্তে ব্যাংক লোন প্রাপ্তির গ্যারান্টি</h4>
+                <p class="text-slate-900 text-sm max-w-xl leading-relaxed">
+                  আপনার খামার প্রকল্প গড়ে তুলতে লাইসেন্সিং ও ব্যাংক ঋণ আবেদনের জন্য আমাদের স্পেশাল কনসালট্যান্ট টিম প্রজেক্ট প্রোফাইল তৈরিতে সরাসরি সহায়তা করবে।
+                </p>
+              </div>
+              <button onclick="changeTab('contact')" class="bg-slate-950 text-white hover:bg-slate-900 transition font-black px-8 py-4 rounded-xl shadow-lg shrink-0">
+                আজই রেজিস্ট্রেশন করুন
+              </button>
+            </div>
+        </section>
+
+        <!-- ================= MEDICAL TRAINING HUB TAB ================= -->
+        <section id="tab-medical" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">বাংলাদেশ পল্লী চিকিৎসা ট্রেনিং সেন্টার</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">পল্লী চিকিৎসা প্রশিক্ষণ ও দক্ষতা উন্নয়ন</h2>
+                <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+                    নিজেকে একজন দক্ষ ও স্বাধীন পল্লী চিকিৎসক হিসেবে গড়ে তুলতে আধুনিক চিকিৎসা শিক্ষা অর্জন করুন। ফার্মেসী ব্যবসা বা গ্রামীণ প্রাথমিক স্বাস্থ্যসেবা প্রদানে আমাদের কোর্সসমূহ অত্যন্ত উপযোগী ও সরকারি বিধি অনুমোদিত।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="medical-courses-grid">
+                <!-- Rendered dynamically -->
+            </div>
+
+            <div class="mt-12 bg-emerald-50 rounded-3xl p-6 md:p-8 border border-emerald-100 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+              <div class="md:col-span-2 space-y-2">
+                <h4 class="font-black text-emerald-950 text-lg">আমাদের বিশেষ সুবিধা সমূহের তালিকা:</h4>
+                <p class="text-xs text-emerald-800 leading-relaxed">
+                  হাতে-কলমে শিক্ষা ও আধুনিক ওটি প্র্যাকটিস, পরীক্ষা শেষে সরাসরি সফলভাবে উত্তীর্ণদের সনদপত্র প্রদান এবং স্বাবলম্বী হয়ে ওঠার জন্য ফার্মেসী ড্রাগ লাইসেন্সিং সংক্রান্ত পূর্ণাঙ্গ টেকনিক্যাল পরামর্শ সহায়তা দেওয়া হয়।
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-2xl border border-emerald-200 text-center font-bold text-emerald-900 shadow-sm text-sm">
+                <span>১০০% প্র্যাকটিক্যাল গ্যারান্টি</span>
+              </div>
+            </div>
+        </section>
+
+        <!-- ================= DESHBONDHU FEED PORTAL TAB ================= -->
+        <section id="tab-feed" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">দেশবন্ধু এগ্রো ফিড লিমিটেড</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">উচ্চ-মানের পোল্ট্রি, মৎস্য ও গবাদিপশুর ফিড</h2>
+                <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+                    বৈজ্ঞানিক ফর্মুলায় প্রস্তুতকৃত দেশবন্ধু ফিড নিয়মিত ব্যবহারে আপনার খামারের মাছ ও গবাদিপশুর হজমশক্তি দ্রুত বৃদ্ধি পায়, ডিম ও দুধের উৎপাদন বাড়ে এবং রোগ বালাইয়ের হার উল্লেখযোগ্যভাবে কমে আসে।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Product Catalog Grid (3 cols) -->
+                <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6" id="feed-products-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Shopping Cart Sidebar Panel (1 col) -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm h-fit space-y-6">
+                    <h4 class="font-black text-slate-800 text-base flex items-center gap-1.5 border-b border-slate-100 pb-3">
+                        <i data-lucide="shopping-cart" class="text-emerald-600 w-5 h-5"></i>
+                        <span>আপনার কার্ট</span>
+                        <span id="cart-indicator-sidebar" class="bg-emerald-100 text-emerald-800 font-bold text-xs px-2 py-0.5 rounded-full ml-auto">0</span>
+                    </h4>
+
+                    <div id="cart-empty-state" class="text-center py-8 text-slate-400 space-y-2">
+                        <i data-lucide="shopping-cart" class="mx-auto w-8 h-8"></i>
+                        <p class="text-xs font-semibold">কার্টটি খালি রয়েছে। পোল্ট্রি ও ফিশ খাদ্য যোগ করুন।</p>
+                    </div>
+
+                    <div id="cart-items-container" class="space-y-4 hidden">
+                        <!-- Items list -->
+                    </div>
+
+                    <div id="cart-footer" class="space-y-4 hidden pt-2">
+                        <div class="space-y-2 text-xs">
+                          <div class="flex justify-between text-slate-500">
+                            <span>মোট আইটেম:</span>
+                            <span id="cart-total-bags">0 ব্যাগ</span>
+                          </div>
+                          <div class="flex justify-between font-bold text-slate-800 text-sm border-t border-slate-100 pt-2">
+                            <span>সর্বমোট মূল্য:</span>
+                            <span id="cart-total-price" class="text-emerald-700">0 ৳</span>
+                          </div>
+                        </div>
+
+                        <button onclick="openCheckoutModal()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs py-3 rounded-xl shadow-md text-center transition">
+                          অর্ডার বুক করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT & VERIFICATION TAB ================= -->
+        <section id="tab-contact" class="tab-content max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              
+              <!-- Left Column: Secure Registration & Inquiry Form -->
+              <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                <div class="space-y-2">
+                  <span class="text-emerald-700 font-extrabold text-xs tracking-widest uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100">অনলাইন পোর্টাল</span>
+                  <h3 class="text-2xl md:text-3xl font-black text-slate-900">নিরাপদ রেজিস্ট্রেশন ও বুকিং ফর্ম</h3>
+                  <p class="text-slate-600 text-xs md:text-sm font-semibold">
+                    আপনার বাজেট ও চাহিদামত জমি অনুসন্ধান, এগ্রো/মেডিকেল প্রশিক্ষণ কোর্সে ভর্তি আবেদন অথবা দেশবন্ধু এগ্রো ফিড ডিস্ট্রিবিউটরশিপ বুকিং সম্পন্ন করতে নিচের ফর্মটি সাবমিট করুন।
+                  </p>
+                </div>
+
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4 pt-4 text-xs md:text-sm text-slate-700">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="font-bold text-slate-600 block">আপনার সম্পূর্ণ নাম:</label>
+                      <input type="text" id="reg-name" required placeholder="উদাঃ মোঃ আব্দুল করিম" class="w-full border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                    </div>
+                    <div class="space-y-1">
+                      <label class="font-bold text-slate-600 block">সক্রিয় মোবাইল নম্বর:</label>
+                      <input type="tel" id="reg-phone" required placeholder="উদাঃ ০১৯৪৭-XXXXXX" class="w-full border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                    </div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="font-bold text-slate-600 block">আপনার প্রধান উদ্দেশ্য / সার্ভিসের ধরণ:</label>
+                    <select id="reg-purpose" onchange="togglePurposeConditionalFields()" class="w-full border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none bg-white">
+                      <option value="land_buy">নিরাপদ জমি / প্লট ক্রয় করতে চাই</option>
+                      <option value="land_sell">আমার গাজীপুরের জমি বিক্রি / ডেভেলপমেন্টে দিতে চাই</option>
+                      <option value="agro_training">বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশন (কৃষি কোর্স)</option>
+                      <option value="medical_training">বাংলাদেশ পল্লী চিকিৎসা ট্রেনিং সেন্টার (মেডিকেল কোর্স)</option>
+                      <option value="feed_distributor">দেশবন্ধু এগ্রো ফিড ডিস্ট্রিবিউটরশিপ নিতে চাই</option>
+                    </select>
+                  </div>
+
+                  <!-- Conditional Fields based on purpose -->
+                  <div id="medical-courses-selector-group" class="space-y-1 hidden animate-fade-in">
+                    <label class="font-bold text-slate-600 block">মনোনীত পল্লী চিকিৎসা কোর্স নির্বাচন করুন:</label>
+                    <select id="reg-medical-course" class="w-full border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none bg-white">
+                      <option value="LMAF">LMAF (১ বছর মেয়াদী - প্রাথমিক চিকিৎসা)</option>
+                      <option value="Paramedical">Paramedical (২ বছর মেয়াদী - কমিউনিটি প্যারামেডিক)</option>
+                      <option value="RMP">RMP (৬ মাস মেয়াদী - রেজিস্টার্ড মেডিকেল প্র্যাক্টিশনার)</option>
+                      <option value="DMS">DMS/DMSS (২-৩ বছর মেয়াদী - ডিপ্লোমা ইন মেডিসিন অ্যান্ড সার্জারি)</option>
+                    </select>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="font-bold text-slate-600 block">অতিরিক্ত বার্তা / জমির সুনির্দিষ্ট বিবরণ বা চাহিদা (ঐচ্ছিক):</label>
+                    <textarea id="reg-notes" rows="4" placeholder="জমির ক্ষেত্রে আপনার পছন্দের লোকেশন, বাজেট বা পোল্ট্রি খামারের আয়তন বিস্তারিত লিখুন..." class="w-full border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+                  </div>
+
+                  <button type="submit" class="w-full bg-gradient-to-r from-emerald-700 to-emerald-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:from-emerald-800 hover:to-emerald-700 transition">
+                    রেজিস্ট্রেশন সাবমিট করুন
+                  </button>
+                </form>
+
+                <div id="contact-success-msg" class="hidden bg-emerald-50 border border-emerald-200 p-5 rounded-2xl text-center space-y-2 animate-fade-in">
+                  <i data-lucide="check-circle" class="text-emerald-600 mx-auto w-8 h-8"></i>
+                  <h5 class="font-black text-emerald-800 text-sm">রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে!</h5>
+                  <p class="text-xs text-emerald-700">এভারগ্রিন গ্রুপের সংশ্লিষ্ট বিভাগ থেকে ২৪ ঘণ্টার মধ্যে সরাসরি আপনার সাথে যোগাযোগ করা হবে।</p>
+                </div>
+              </div>
+
+              <!-- Right Column: Contact info & Doc Verification -->
+              <div class="lg:col-span-5 space-y-8">
+                <!-- 1. Official Address & Contact Panel -->
+                <div class="bg-gradient-to-br from-emerald-850 to-emerald-950 text-white p-6 md:p-8 rounded-3xl shadow-xl space-y-6">
+                  <h4 class="font-black text-amber-300 text-lg border-b border-emerald-800 pb-3 flex items-center gap-2">
+                    <i data-lucide="map-pin"></i>
+                    <span>প্রধান কার্যালয়ের ঠিকানা</span>
+                  </h4>
+
+                  <div class="space-y-4 text-xs md:text-sm">
+                    <div class="space-y-1">
+                      <p class="text-slate-400 uppercase tracking-widest font-bold text-[10px]">EVERGREEN REAL ESTATE MEDIA</p>
+                      <p class="font-bold text-slate-100">গাজীপুর সদর, মেট্রোপলিটন পুলিশ হেডকোয়ার্টার সংলগ্ন নাটা রোড, গাজীপুর-১৭০২, বাংলাদেশ।</p>
+                    </div>
+
+                    <div class="space-y-1 pt-2">
+                      <p class="text-slate-400 uppercase tracking-widest font-bold text-[10px]">অফিসিয়াল হটলাইন</p>
+                      <p class="font-bold text-slate-100">০১৯৪৭-৮২২৩৯৯</p>
+                      <p class="font-bold text-slate-100">+৮৮০ ১৯৬৯-১৪৯৭১১</p>
+                    </div>
+
+                    <div class="space-y-1 pt-2">
+                      <p class="text-slate-400 uppercase tracking-widest font-bold text-[10px]">অফিসিয়াল ওয়েবসাইট</p>
+                      <p class="font-medium text-slate-100">DeshbondhuAgroFeed.com</p>
+                      <p class="font-medium text-slate-100">EvergreenGroup999.com</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Interactive Document Verification Widget -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                  <h4 class="font-black text-slate-800 text-sm flex items-center gap-2">
+                    <i data-lucide="shield-check" class="text-emerald-600 w-5 h-5"></i>
+                    <span>আইনি দলিল ভেরিফিকেশন সার্ভিস</span>
+                  </h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    আপনার কেনা জমির দলিল নাম্বার বা মিউটেশন খতিয়ান ট্র্যাকিং আইডি এখানে দিয়ে আমাদের অভিজ্ঞ ইনভেস্টিগেশন টিম দ্বারা সরাসরি পরীক্ষা করতে পারেন।
+                  </p>
+
+                  <form onsubmit="handleDocVerification(event)" class="space-y-3">
+                    <input type="text" id="verification-serial" required placeholder="দলিল বা খতিয়ান আইডি দিন (উদাঃ ১৫৩/২৬)" class="w-full border border-slate-200 px-3 py-2.5 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                    <button type="submit" class="w-full bg-slate-900 text-white font-bold text-xs py-2.5 rounded-xl shadow-md hover:bg-slate-800 transition">
+                      আইনি রেকর্ড ভেরিফাই করুন
+                    </button>
+                  </form>
+
+                  <!-- Verification Result Area -->
+                  <div id="verification-result-container" class="hidden bg-emerald-50 border border-emerald-200 p-4 rounded-2xl space-y-2 text-xs animate-fade-in">
+                      <div class="flex items-center gap-1.5 text-emerald-800 font-bold">
+                        <i data-lucide="check-circle" class="text-emerald-600 w-4 h-4"></i>
+                        <span>দলিল রেকর্ড স্ট্যাটাস: নিরাপদ (SECURE)</span>
+                      </div>
+                      <div class="space-y-1 text-slate-700 text-[11px]">
+                        <p><strong>আইডি:</strong> <span id="res-id">--</span></p>
+                        <p><strong>মালিকের নাম:</strong> <span id="res-owner">--</span></p>
+                        <p><strong>মৌজা:</strong> <span id="res-mouza">--</span></p>
+                        <p><strong>স্ট্যাটাস:</strong> <span id="res-status">--</span></p>
+                        <p><strong>যাচাইকারী:</strong> <span id="res-agent">--</span></p>
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- --- PREMIUM FOOTER --- -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="space-y-4">
+            <h4 class="text-white font-black text-lg tracking-wider uppercase leading-none">
+              EVERGREEN <span class="text-amber-400 block text-xs mt-1 font-bold">REAL ESTATE MEDIA</span>
+            </h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              আবাসিক, বাণিজ্যিক ও শিল্প প্রকল্পের জন্য জমি সংগ্রহ, আধুনিক এগ্রো-পোল্ট্রি ও মৎস্য খামার প্রশিক্ষণ এবং মানসম্পন্ন দেশবন্ধু এগ্রো ফিড প্রক্রিয়াকরণ ও সরবরাহের সমন্বিত প্ল্যাটফর্ম।
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <h5 class="text-white font-bold text-sm">सहयोगी সংস্থাসমূহ</h5>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li>• বাংলাদেশ পল্লী চিকিৎসা ট্রেনিং সেন্টার</li>
+              <li>• বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশন</li>
+              <li>• দেশবন্ধু এগ্রো ফিড লিমিটেড</li>
+              <li>• এভারগ্রিন ইনভেস্টিগেশন ও লিগ্যাল উইং</li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <h5 class="text-white font-bold text-sm">প্রশিক্ষণ কোর্সসমূহ</h5>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li>• LMAF (১ বছর মেয়াদী চিকিৎসা)</li>
+              <li>• Community Paramedical ডিপ্লোমা</li>
+              <li>• আধুনিক পোল্ট্রি খামার ব্যবস্থাপনা (৪ মাস)</li>
+              <li>• সুষম মাছ চাষ ও মৎস্য ব্যবস্থাপনা (৪ মাস)</li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <h5 class="text-white font-bold text-sm">যোগাযোগ ও লোকেশন</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              মেট্রোপলিটন পুলিশ হেডকোয়ার্টার সংলগ্ন নাটা রোড, গাজীপুর-১৭০২, বাংলাদেশ। <br />
+              হটলাইন: ০১৯৪৭-৮২২৩৯৯
+            </p>
+            <div class="pt-2">
+              <span class="bg-amber-400 text-slate-900 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider block w-fit">
+                নিরাপদ জমি নিশ্চিত ভবিষ্যৎ
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 md:px-6 mt-12 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© 2026 Evergreen Real Estate Media. সর্বস্বত্ব সংরক্ষিত।</p>
+          <div class="flex gap-4">
+            <a onclick="changeTab('home')" class="hover:text-emerald-400 cursor-pointer">হোমপেজ</a>
+            <a onclick="changeTab('properties')" class="hover:text-emerald-400 cursor-pointer">নিরাপদ জমি</a>
+            <a onclick="changeTab('calculator')" class="hover:text-emerald-400 cursor-pointer">ট্যাক্স ক্যালকুলেটর</a>
+          </div>
+        </div>
+    </footer>
+
+    <!-- --- PRODUCT DETAILED MODAL --- -->
+    <div id="property-detail-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 md:p-8 relative shadow-2xl border border-slate-100">
+          <button onclick="closePropertyModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-50 rounded-full">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+
+          <div class="space-y-6">
+            <div>
+              <span class="text-emerald-700 bg-emerald-50 border border-emerald-100 font-black text-[10px] px-2.5 py-1.5 rounded-lg">নিরাপদ সম্পত্তি বিস্তারিত</span>
+              <h3 id="modal-prop-title" class="text-xl md:text-2xl font-black text-slate-800 mt-2 leading-tight">--</h3>
+              <div class="flex items-center gap-1.5 text-xs text-slate-500 mt-2">
+                <i data-lucide="map-pin" class="text-emerald-600 w-4 h-4"></i>
+                <span id="modal-prop-location">--</span>
+              </div>
+            </div>
+
+            <img id="modal-prop-image" src="" alt="Property closeup" class="rounded-2xl w-full h-48 object-cover border border-slate-100" />
+
+            <div class="space-y-2 text-xs md:text-sm text-slate-700 leading-relaxed">
+              <p class="font-medium text-slate-600">
+                আমাদের অভিজ্ঞ লিগ্যাল ও ফিল্ড টিম এই জমির সিএস, এসএ, আরএস, বিএস খতিয়ান ও নামজারি সম্পূর্ণ নিখুঁত পেয়েছে। আপনি কোনো আইনি ঝামেলা ছাড়াই সরাসরি মালিকানা রেজিস্ট্রি করতে পারবেন।
+              </p>
+              <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl">
+                <div>
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold">মোট দাম</span>
+                  <span id="modal-prop-price" class="text-emerald-700 font-extrabold text-base">--</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold">জমির পরিমাণ</span>
+                  <span id="modal-prop-area" class="font-extrabold text-base text-slate-800">--</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inquiry Form Inside Modal -->
+            <form onsubmit="handleModalInquiry(event)" class="space-y-4 pt-4 border-t border-slate-100">
+              <h4 class="font-black text-slate-800 text-sm">এই জমির আইনি দলিলাদি ও ক্রয়ের জন্য বুকিং ইনকোয়ারি পাঠান:</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="modal-form-name" required placeholder="আপনার নাম" class="w-full border border-slate-200 px-3 py-2 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                <input type="tel" id="modal-form-phone" required placeholder="মোবাইল নম্বর" class="w-full border border-slate-200 px-3 py-2 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+              <button type="submit" class="w-full bg-gradient-to-r from-emerald-700 to-emerald-600 text-white font-bold text-xs py-3 rounded-xl shadow-md">
+                ফ্রি পরামর্শ ও দলিলাদি বুকিং পাঠান
+              </button>
+            </form>
+
+            <div id="modal-success-msg" class="hidden bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center space-y-2">
+                <i data-lucide="check-circle" class="text-emerald-600 mx-auto w-6 h-6"></i>
+                <h5 class="font-black text-emerald-800 text-xs">আপনার বুকিং তথ্য সফলভাবে গৃহীত হয়েছে!</h5>
+                <p class="text-[10px] text-emerald-700">আমাদের লিগ্যাল ইনভেস্টিগেশন টিম আগামী ২৪ ঘণ্টার মধ্যে সরাসরি আপনার সাথে যোগাযোগ করবে। ধন্যবাদ।</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- --- FEED CHECKOUT MODAL --- -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+          <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 p-1 text-slate-400 hover:text-slate-800">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+
+          <h3 class="font-black text-slate-800 text-lg border-b border-slate-100 pb-3">দেশবন্ধু ফিড ডেলিভারি ইনফরমেশন</h3>
+          
+          <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 pt-4 text-xs">
+            <div class="space-y-1">
+              <label class="font-bold text-slate-600 block">আপনার নাম/খামারের নাম:</label>
+              <input type="text" id="checkout-name" required placeholder="নাম লিখুন" class="w-full border border-slate-200 px-3 py-2.5 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+
+            <div class="space-y-1">
+              <label class="font-bold text-slate-600 block">মোবাইল নম্বর:</label>
+              <input type="tel" id="checkout-phone" required placeholder="মোবাইল নম্বর লিখুন" class="w-full border border-slate-200 px-3 py-2.5 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+
+            <div class="space-y-1">
+              <label class="font-bold text-slate-600 block">ডেলিভারি ঠিকানা (ডিস্ট্রিবিউশন জোন/চৌরাস্তা/বাঘের বাজার):</label>
+              <textarea id="checkout-address" rows="3" required placeholder="বিস্তারিত গ্রাম/থানা/জেলা সহ ঠিকানা লিখুন" class="w-full border border-slate-200 px-3 py-2 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex justify-between font-bold text-slate-800">
+              <span>পরিশোধযোগ্য মূল্য (ক্যাশ অন ডেলিভারি):</span>
+              <span id="checkout-payable-price" class="text-emerald-700">0 ৳</span>
+            </div>
+
+            <button type="submit" class="w-full bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md">
+              ডেলিভারি নিশ্চিত করুন
+            </button>
+          </form>
+
+          <div id="checkout-success-container" class="absolute inset-0 bg-white rounded-3xl p-6 hidden flex flex-col justify-center items-center text-center space-y-3">
+              <i data-lucide="check-circle" class="text-emerald-600 animate-bounce w-12 h-12"></i>
+              <h4 class="font-black text-slate-800 text-base">আপনার ফিড অর্ডারটি গৃহীত হয়েছে!</h4>
+              <p class="text-xs text-slate-600">আমাদের গাজীপুর সদর ডিস্ট্রিবিউশন ইউনিট থেকে প্রতিনিধি আপনার ঠিকানায় ফিড ব্যাগ ডেলিভারি নিশ্চিত করতে ২৪ ঘণ্টার মধ্যে কল করবে।</p>
+          </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ENGINE ================= -->
+    <script>
+        // --- MOCK DATA ---
+        const PROPERTY_LISTINGS = [
+            {
+                id: 1,
+                title: "ধীরাশ্রম ফ্লাইওভার সংলগ্ন বাণিজ্যিক ও শিল্প প্লট",
+                location: "ধীরাশ্রম, গাজীপুর সদর",
+                category: "commercial",
+                price: 30000000,
+                area: "১০ বিঘা (আউটরাইট)",
+                highlight: "হাইওয়ে ও রেল সংযোগের নিকটবর্তী এবং ভারী শিল্পের উপযোগী উঁচু লাল মাটি।",
+                image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "১,৫০,০০০ টাকা/শতাংশ"
+            },
+            {
+                id: 2,
+                title: "ভাওয়াল কলেজ সংলগ্ন রাজউক অনুমোদিত বহুতল বাণিজ্যিক প্লট",
+                location: "গাজীপুর চৌরাস্তা",
+                category: "commercial",
+                price: 170000000,
+                area: "২১ কাঠা (১৬ তলা নকশা অনুমোদিত)",
+                highlight: "ঢাকা-ময়মনসিংহ মহাসড়কের সরাসরি সংযোগ ও শতভাগ ক্লিয়ার ওআইসি এবং নকশা অনুমোদন।",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "৫,০০,০০০ টাকা/শতাংশ"
+            },
+            {
+                id: 3,
+                title: "মাওনা অর্থনৈতিক জোন সংলগ্ন শিল্প কারখানা উপযোগী জমি",
+                location: "মাওনা, শ্রীপুর",
+                category: "industrial",
+                price: 13800000,
+                area: "১০০ শতাংশ (উঁচু ও সমতল জমি)",
+                highlight: "গার্মেন্টস, টেক্সটাইল বা লজিস্টিক পার্কের জন্য উপযুক্ত প্রধান সড়ক সংলগ্ন নিষ্কাশন সুবিধাযুক্ত স্থান।",
+                image: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "১,৩৮,০০০ টাকা/শতাংশ"
+            },
+            {
+                id: 4,
+                title: "বাঘের বাজার সাফারি পার্কের নিকটবর্তী উঁচু আবাসিক প্লট",
+                location: "বাঘের বাজার, শ্রীপুর",
+                category: "residential",
+                price: 51120000,
+                area: "১৪.২২ কাঠা",
+                highlight: "বন্যামুক্ত লাল মাটি, আবাসিক আবাসন বা ডেইরি/পোল্ট্রি খামার স্থাপনের আদর্শ পরিবেশ।",
+                image: "https://images.unsplash.com/photo-1524813686514-a57563d77965?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "৯২,০০০ টাকা/শতাংশ"
+            },
+            {
+                id: 5,
+                title: "কালীগঞ্জ পূর্বাচল এশিয়ান হাইওয়ে সংলগ্ন রেডি আবাসন প্লট",
+                location: "কালীগঞ্জ, গাজীপুর",
+                category: "residential",
+                price: 148000000,
+                area: "১১২ শতাংশ (রাজউক পূর্বাচল সংলগ্ন)",
+                highlight: "দ্রুত বর্ধনশীল এলাকা, গ্যাস ও বিদ্যুৎ সংযোগ প্রস্তুত। তাৎক্ষণিক রেজিস্ট্রেশন ও নামজারি।",
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "১,২০,০০০ টাকা/শতাংশ"
+            },
+            {
+                id: 6,
+                title: "মৌচাক-ফুলবাড়িয়া রোড সংলগ্ন ক্ষুদ্র মাঝারি খামার বা কুটির শিল্প প্লট",
+                location: "কালিয়াকৈর, গাজীপুর",
+                category: "industrial",
+                price: 5400000,
+                area: "১০ শতাংশ",
+                highlight: "সাশ্রয়ী মূল্যে নিরাপদ বিনিয়োগ। খামার ব্যবসা বা ক্ষুদ্র ও মাঝারি শিল্প গড়ে তোলার চমৎকার সুযোগ।",
+                image: "https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=800&q=80",
+                verified: true,
+                mouzaRate: "৪৫,০০০ টাকা/শতাংশ"
+            }
+        ];
+
+        const AGRO_COURSES = [
+            {
+                id: "agro-1",
+                title: "আধুনিক পোল্ট্রি খামার ব্যবস্থাপনা",
+                duration: "৪ মাস (হাতে-কলমে শিক্ষা)",
+                description: "বায়োসিকিউরিটি, ব্রুডিং ম্যানেজমেন্ট, পুষ্টি পরিকল্পনা, রোগ প্রতিরোধ ও আধুনিক ভ্যাকসিনেশন কৌশল।",
+                features: ["পরীক্ষা ও সরকারি মানসম্পন্ন সনদপত্র", "উদ্যোক্তা উন্নয়ন প্রশিক্ষণ", "সহজ শর্তে ব্যাংক ঋণের গাইডলাইন"]
+            },
+            {
+                id: "agro-2",
+                title: "মাছ চাষ ও মৎস্য ব্যবস্থাপনা",
+                duration: "৪ মাস (ব্যবহারিকসহ)",
+                description: "মিশ্র মাছ চাষ, আধুনিক বায়োফ্লক ও আরএএস (RAS) প্রযুক্তি, পুকুর প্রস্তুতি এবং রোগ প্রতিরোধ ও পানি ব্যবস্থাপনা।",
+                features: ["নকশা ডিজাইন ও লাইসেন্সিং সহায়তা", "দেশবন্ধু এগ্রো ফিড বিশেষ ছাড়", "খামার নকশা ডিজাইন ও সহায়তা"]
+            },
+            {
+                id: "agro-3",
+                title: "গবাদিপশু পালন ও প্রাথমিক চিকিৎসা",
+                duration: "৪ মাস (অন-ফিল্ড প্র্যাকটিস)",
+                description: "উন্নত জাতের গাভী ও ষাঁড় মোটাতাজাকরণ, ছাগল ও ভেড়া পালন এবং প্রাথমিক প্রাণিসম্পদ চিকিৎসা পদ্ধতি।",
+                features: ["ভেট ডক্টরের অধীনে সরাসরি ইন্টার্নশিপ", "ব্যাংক ঋণ ও ব্যবসায়িক পরিকল্পনা প্রণয়ন", "ফিড ও মেডিসিন ব্যাকআপ"]
+            }
+        ];
+
+        const MEDICAL_COURSES = [
+            {
+                code: "LMAF",
+                title: "Local Medical Assistant & Family Planning (LMAF)",
+                duration: "১ বছর",
+                qualification: "এসএসসি / সমমান",
+                focus: "প্রাথমিক চিকিৎসা, ওটি প্র্যাকটিস, ফার্মাকোলজি ও মা ও শিশু স্বাস্থ্য।"
+            },
+            {
+                code: "Paramedical",
+                title: "Community Paramedic Course (CPC)",
+                duration: "২ বছর",
+                qualification: "এসএসসি/এইচএসসি",
+                focus: "নিবন্ধিত স্বাস্থ্যসেবা প্রদানকারী হিসেবে ক্যারিয়ার গড়ার জন্য অনুমোদিত ডিপ্লোমা।"
+            },
+            {
+                code: "RMP",
+                title: "Registered Medical Practitioner (RMP)",
+                duration: "৬ মাস",
+                qualification: "ন্যূনতম ৮ম শ্রেণী / অভিজ্ঞ পল্লী চিকিৎসক",
+                focus: "জরুরী প্রাথমিক চিকিৎসা, প্রেসক্রিপশন নিয়মাবলি এবং ড্রাগ কন্ট্রোল গাইড।"
+            },
+            {
+                code: "DMS/DMSS",
+                title: "Diploma in Medicine and Surgery (DMS/DMSS)",
+                duration: "২-৩ বছর",
+                qualification: "এইচএসসি বিজ্ঞান (পছন্দনীয়)",
+                focus: "উন্নত অ্যানাটমি, প্যাথলজি, ডায়াগনোসিস ও জটিল কেস রেফারেল সিস্টেম।"
+            }
+        ];
+
+        const FEED_PRODUCTS = [
+            {
+                id: "feed-1",
+                name: "দেশবন্ধু স্টার্টার ব্রয়লার ফিড (Poultry)",
+                category: "poultry",
+                price: 3600,
+                unit: "৫০ কেজি ব্যাগ",
+                image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=400&q=80",
+                desc: "উচ্চ প্রোটিন সমৃদ্ধ, দ্রুত শারীরিক বৃদ্ধি নিশ্চিত করে এবং হজম শক্তি বাড়ায়।"
+            },
+            {
+                id: "feed-2",
+                name: "দেশবন্ধু ফ্লোটিং ফিশ ফিড (মৎস্য খাদ্য)",
+                category: "fish",
+                price: 2400,
+                unit: "৪০ কেজি ব্যাগ",
+                image: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=400&q=80",
+                desc: "পানিতে দীর্ঘক্ষণ ভাসমান থাকে, পুষ্টির অপচয় রোধ করে এবং দ্রুত বর্ধনে সাহায্য করে।"
+            },
+            {
+                id: "feed-3",
+                name: "দেশবন্ধু ডেইরি গোল্ড কনসেনট্রেট (গবাদিপশু)",
+                category: "cattle",
+                price: 1950,
+                unit: "৩৭.৫ কেজি ব্যাগ",
+                image: "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=400&q=80",
+                desc: "দুধ উৎপাদন ক্ষমতা বৃদ্ধি করতে এবং গাভীর স্বাস্থ্য সুরক্ষায় সুষম পুষ্টি উপাদান।"
+            },
+            {
+                id: "feed-4",
+                name: "দেশবন্ধু লেয়ার গ্রোয়ার ফিড (Poultry)",
+                category: "poultry",
+                price: 3100,
+                unit: "৫০ কেজি ব্যাগ",
+                image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=400&q=80",
+                desc: "ডিম উৎপাদনের হার বৃদ্ধি করে এবং কুসুমের গুণগত মান নিশ্চিত করে।"
+            }
+        ];
+
+        // Global State variables
+        let currentTab = 'home';
+        let propertyCategory = 'all';
+        let propertySearchText = '';
+        let cart = [];
+        let calcZone = 'commercial';
+
+        // Initialize App
+        window.onload = function() {
+            lucide.createIcons();
+            renderProperties();
+            renderAgroCourses();
+            renderMedicalCourses();
+            renderFeedProducts();
+            calculateRegistry();
+        };
+
+        // Tab switching engine
+        function changeTab(tabId) {
+            currentTab = tabId;
+            
+            // Toggle active content wrappers
+            document.querySelectorAll('.tab-content').forEach(element => {
+                element.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // Handle Navigation Buttons Active status
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-emerald-800 transition";
+            });
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if(activeBtn) {
+                activeBtn.className = "nav-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-semibold text-emerald-800 bg-emerald-50 border-b-2 border-emerald-600 font-bold transition";
+            }
+
+            // Mobile Nav UI update
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.className = "mobile-nav-btn flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left text-base font-bold text-slate-700 hover:bg-slate-100 hover:text-emerald-800";
+            });
+            // Update active mobile nav btn logic...
+            
+            // Close mobile menu if open
+            closeMobileMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        // Mobile menu controls
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                openIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('menu-icon-open').classList.remove('hidden');
+            document.getElementById('menu-icon-close').classList.add('hidden');
+        }
+
+        // Render Properties List
+        function renderProperties() {
+            const container = document.getElementById('property-grid');
+            container.innerHTML = '';
+            
+            const filtered = PROPERTY_LISTINGS.filter(item => {
+                const matchesCat = propertyCategory === 'all' || item.category === propertyCategory;
+                const matchesSearch = item.location.toLowerCase().includes(propertySearchText.toLowerCase()) || 
+                                      item.title.toLowerCase().includes(propertySearchText.toLowerCase());
+                return matchesCat && matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                document.getElementById('no-properties-msg').classList.remove('hidden');
+            } else {
+                document.getElementById('no-properties-msg').classList.add('hidden');
+            }
+
+            filtered.forEach(property => {
+                const badgeColor = property.category === 'commercial' ? 'bg-amber-500' : property.category === 'industrial' ? 'bg-indigo-600' : 'bg-emerald-600';
+                const catLabel = property.category === 'commercial' ? 'বাণিজ্যিক' : property.category === 'industrial' ? 'শিল্প প্রকল্প' : 'আবাসিক';
+                
+                const card = `
+                <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg transition duration-200 flex flex-col h-full animate-fade-in">
+                    <div class="relative h-56 w-full bg-slate-100">
+                        <img src="${property.image}" alt="${property.title}" class="w-full h-full object-cover" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase text-white shadow-sm ${badgeColor}">
+                                ${catLabel}
+                            </span>
+                        </div>
+                        ${property.verified ? `
+                        <div class="absolute top-4 right-4 bg-emerald-600 text-white font-bold text-[10px] px-2.5 py-1.5 rounded-lg shadow-sm flex items-center gap-1">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                            <span>১০০% দলিলাদি ভেরিফাইড</span>
+                        </div>` : ''}
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                                <i data-lucide="map-pin" class="text-emerald-600 w-3.5 h-3.5"></i>
+                                <span>${property.location}</span>
+                            </div>
+                            <h4 class="font-black text-slate-800 text-lg leading-snug hover:text-emerald-700 transition duration-150">
+                                ${property.title}
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">${property.highlight}</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700">
+                            <div>
+                                <span class="text-slate-400 block text-[9px] uppercase font-bold">ভূমির পরিমাণ</span>
+                                <span class="font-bold">${property.area}</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block text-[9px] uppercase font-bold">মৌজা রেট</span>
+                                <span class="font-bold">${property.mouzaRate}</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[10px] uppercase font-bold">আনুমানিক মূল্য</span>
+                                <span class="text-emerald-700 font-extrabold text-base md:text-lg">${formatPrice(property.price)}</span>
+                            </div>
+                            <button onclick="openPropertyModal(${property.id})" class="bg-emerald-50 text-emerald-800 font-bold text-xs px-4 py-2.5 rounded-lg hover:bg-emerald-600 hover:text-white transition duration-150">
+                                বিস্তারিত জানুন
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+                container.innerHTML += card;
+            });
+            lucide.createIcons();
+        }
+
+        function filterProperties(category) {
+            propertyCategory = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-slate-50 text-slate-600 hover:bg-slate-100";
+            });
+            document.getElementById('filter-' + category).className = "filter-btn px-4 py-2 rounded-xl text-xs font-bold transition duration-150 bg-emerald-600 text-white shadow-sm";
+            renderProperties();
+        }
+
+        function searchProperties() {
+            propertySearchText = document.getElementById('prop-search').value;
+            renderProperties();
+        }
+
+        // Property details Modals
+        function openPropertyModal(id) {
+            const property = PROPERTY_LISTINGS.find(p => p.id === id);
+            if(!property) return;
+            
+            document.getElementById('modal-prop-title').innerText = property.title;
+            document.getElementById('modal-prop-location').innerText = property.location;
+            document.getElementById('modal-prop-image').src = property.image;
+            document.getElementById('modal-prop-price').innerText = formatPrice(property.price);
+            document.getElementById('modal-prop-area').innerText = property.area;
+
+            // Reset modal success message & show form
+            document.getElementById('modal-success-msg').classList.add('hidden');
+            
+            document.getElementById('property-detail-modal').classList.remove('hidden');
+            document.getElementById('property-detail-modal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closePropertyModal() {
+            document.getElementById('property-detail-modal').classList.add('hidden');
+            document.getElementById('property-detail-modal').classList.remove('flex');
+        }
+
+        function handleModalInquiry(e) {
+            e.preventDefault();
+            document.getElementById('modal-success-msg').classList.remove('hidden');
+            setTimeout(() => {
+                closePropertyModal();
+                document.getElementById('modal-form-name').value = '';
+                document.getElementById('modal-form-phone').value = '';
+            }, 3000);
+        }
+
+        // Land Registry Calculator
+        function setCalculatorZone(zone) {
+            calcZone = zone;
+            document.querySelectorAll('[id^="calc-zone-"]').forEach(el => {
+                el.className = "flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition border-slate-200 hover:bg-slate-50";
+            });
+            document.getElementById('calc-zone-' + zone).className = "flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition bg-emerald-50/50 border-emerald-500";
+            calculateRegistry();
+        }
+
+        function calculateRegistry() {
+            const valInput = document.getElementById('land-value-input').value;
+            const value = Number(valInput) || 0;
+
+            // Update Bangla word helper
+            document.getElementById('land-value-bn-word').innerText = `অনুমান: ${new Intl.NumberFormat('bn-BD').format(value)} টাকা`;
+
+            const stampDutyRate = 0.015;
+            const registrationFeeRate = 0.01;
+            const localGovTaxRate = calcZone === 'rural' ? 0.02 : 0.03;
+
+            let sourceTaxRate2425 = 0.08;
+            let sourceTaxRate2526 = 0.06;
+
+            if (calcZone === 'municipal') {
+                sourceTaxRate2425 = 0.06;
+                sourceTaxRate2526 = 0.04;
+            } else if (calcZone === 'rural') {
+                sourceTaxRate2425 = 0.04;
+                sourceTaxRate2526 = 0.03;
+            }
+
+            const stampDuty2526 = value * stampDutyRate;
+            const regFee2526 = value * registrationFeeRate;
+            const localGovTax2526 = value * localGovTaxRate;
+            const sourceTax2425 = value * sourceTaxRate2425;
+            const sourceTax2526 = value * sourceTaxRate2526;
+
+            const total2425 = (value * stampDutyRate) + (value * registrationFeeRate) + (value * localGovTaxRate) + sourceTax2425;
+            const total2526 = stampDuty2526 + regFee2526 + localGovTax2526 + sourceTax2526;
+            const directSavings = total2425 - total2526;
+
+            // DOM Insertion
+            document.getElementById('prev-total-cost').innerText = formatPrice(total2425);
+            document.getElementById('new-total-cost').innerText = formatPrice(total2526);
+            document.getElementById('direct-savings').innerText = formatPrice(directSavings);
+
+            document.getElementById('stamp-duty-val').innerText = formatPrice(stampDuty2526);
+            document.getElementById('reg-fee-val').innerText = formatPrice(regFee2526);
+            document.getElementById('local-gov-val').innerText = formatPrice(localGovTax2526);
+            
+            const prevTaxPercentage = calcZone === 'commercial' ? '৮%' : calcZone === 'municipal' ? '৬%' : '৪%';
+            const newTaxPercentage = calcZone === 'commercial' ? '৬%' : calcZone === 'municipal' ? '৪%' : '৩%';
+            document.getElementById('gain-tax-val').innerHTML = `${formatPrice(sourceTax2526)} <span class="text-[9px] text-slate-400">(পূর্বে ${prevTaxPercentage} এ ছিল ${formatPrice(sourceTax2425)})</span>`;
+        }
+
+        // Render Training & Course Programs
+        function renderAgroCourses() {
+            const container = document.getElementById('agro-courses-grid');
+            container.innerHTML = '';
+            AGRO_COURSES.forEach(course => {
+                const card = `
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 flex flex-col justify-between hover:shadow-md transition duration-200">
+                  <div class="space-y-4">
+                    <div class="inline-flex items-center gap-1.5 text-xs text-amber-700 bg-amber-50 px-3 py-1 rounded-full font-bold">
+                      <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                      <span>${course.duration}</span>
+                    </div>
+                    <h4 class="text-lg font-black text-slate-800">${course.title}</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${course.description}</p>
+                    <div class="space-y-2 pt-2">
+                      <span class="text-xs font-bold text-slate-400 block uppercase tracking-wider">বিশেষ সুবিধাসমূহ:</span>
+                      ${course.features.map(feat => `
+                        <div class="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                          <i data-lucide="check" class="text-emerald-600 shrink-0 w-3.5 h-3.5"></i>
+                          <span>${feat}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                  <div class="pt-6">
+                    <button onclick="applyForCourse('agro_training', '${course.title}')" class="w-full bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-800 transition duration-150 font-bold text-xs py-3 rounded-xl text-center">
+                      কোর্সে ভর্তি আবেদন করুন
+                    </button>
+                  </div>
+                </div>`;
+                container.innerHTML += card;
+            });
+        }
+
+        function renderMedicalCourses() {
+            const container = document.getElementById('medical-courses-grid');
+            container.innerHTML = '';
+            MEDICAL_COURSES.forEach(course => {
+                const card = `
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 md:p-8 flex flex-col justify-between hover:shadow-md transition">
+                  <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                      <span class="bg-emerald-600 text-white font-black text-sm px-3 py-1 rounded-lg">${course.code}</span>
+                      <span class="text-xs text-slate-500 flex items-center gap-1 font-semibold">
+                        <i data-lucide="clock" class="text-emerald-600 w-3.5 h-3.5"></i>মেয়াদ: ${course.duration}
+                      </span>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-black text-slate-800">${course.title}</h4>
+                    <div class="space-y-1 text-xs text-slate-700">
+                      <p><strong>ভর্তির ন্যূনতম যোগ্যতা:</strong> ${course.qualification}</p>
+                      <p class="text-slate-600 mt-2 leading-relaxed"><strong>কোর্সের মূল ফোকাস:</strong> ${course.focus}</p>
+                    </div>
+                  </div>
+                  <div class="pt-6 border-t border-slate-50 mt-6">
+                    <button onclick="applyForCourse('medical_training', '${course.code}')" class="w-full bg-emerald-700 text-white font-bold text-xs py-3 rounded-xl shadow-md hover:bg-emerald-800 transition">
+                      ভর্তি ফরম ওপেন করুন
+                    </button>
+                  </div>
+                </div>`;
+                container.innerHTML += card;
+            });
+        }
+
+        function applyForCourse(purpose, customNotes) {
+            document.getElementById('reg-purpose').value = purpose;
+            document.getElementById('reg-notes').value = "ভর্তির আগ্রহ: " + customNotes;
+            togglePurposeConditionalFields();
+            changeTab('contact');
+        }
+
+        // E-commerce Feed Portal
+        function renderFeedProducts() {
+            const container = document.getElementById('feed-products-grid');
+            container.innerHTML = '';
+            FEED_PRODUCTS.forEach(prod => {
+                const card = `
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition animate-fade-in">
+                    <div class="relative h-48 w-full bg-slate-100">
+                      <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover" />
+                      <div class="absolute top-3 left-3">
+                        <span class="bg-emerald-600 text-white font-black text-[9px] uppercase px-2.5 py-1 rounded-lg shadow-sm">
+                          ${prod.category === 'poultry' ? 'পোল্ট্রি ফিড' : prod.category === 'fish' ? 'মৎস্য খাদ্য' : 'গবাদিপশু'}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="p-5 space-y-4 flex-grow flex flex-col justify-between">
+                      <div class="space-y-1">
+                        <h4 class="font-black text-slate-800 text-sm md:text-base">${prod.name}</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">${prod.desc}</p>
+                        <span class="text-xs font-bold text-amber-600 block pt-1">প্যাকেজিং ইউনিট: ${prod.unit}</span>
+                      </div>
+                      <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <div>
+                          <span class="text-slate-400 block text-[9px] uppercase font-bold">মূল্য (ব্যাগ)</span>
+                          <span class="text-emerald-700 font-extrabold text-base">${formatPrice(prod.price)}</span>
+                        </div>
+                        <button onclick="addToCart(${prod.id})" class="bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg hover:bg-emerald-800 transition duration-150">
+                          অর্ডার কার্টে যোগ করুন
+                        </button>
+                      </div>
+                    </div>
+                </div>`;
+                container.innerHTML += card;
+            });
+        }
+
+        // Cart Actions
+        function addToCart(productId) {
+            const product = FEED_PRODUCTS.find(p => p.id === `feed-${productId}` || p.id === productId);
+            const existing = cart.find(item => item.id === product.id);
+            if(existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function changeCartQuantity(productId, amount) {
+            const item = cart.find(item => item.id === productId);
+            if(item) {
+                item.quantity += amount;
+                if(item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Badges indicators
+            if(totalItems > 0) {
+                document.getElementById('cart-indicator-btn').classList.remove('hidden');
+                document.getElementById('mobile-cart-btn').classList.remove('hidden');
+                document.getElementById('cart-count-badge').innerText = totalItems;
+                document.getElementById('mobile-cart-badge').innerText = totalItems;
+            } else {
+                document.getElementById('cart-indicator-btn').classList.add('hidden');
+                document.getElementById('mobile-cart-btn').classList.add('hidden');
+            }
+
+            // Sidebar Cart UI
+            const container = document.getElementById('cart-items-container');
+            if(cart.length === 0) {
+                document.getElementById('cart-empty-state').classList.remove('hidden');
+                container.classList.add('hidden');
+                document.getElementById('cart-footer').classList.add('hidden');
+                document.getElementById('cart-indicator-sidebar').innerText = 0;
+            } else {
+                document.getElementById('cart-empty-state').classList.add('hidden');
+                container.classList.remove('hidden');
+                document.getElementById('cart-footer').classList.remove('hidden');
+                document.getElementById('cart-indicator-sidebar').innerText = totalItems;
+
+                container.innerHTML = '';
+                cart.forEach(item => {
+                    const row = `
+                    <div class="flex gap-2 items-start border-b border-slate-50 pb-3 text-xs animate-fade-in">
+                        <div class="flex-grow space-y-1">
+                          <h5 class="font-bold text-slate-800 leading-tight">${item.name}</h5>
+                          <span class="text-emerald-700 font-bold block">${formatPrice(item.price)} × ${item.quantity}</span>
+                        </div>
+                        <div class="flex flex-col items-end gap-2">
+                          <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 font-semibold text-[10px]">রিমুভ</button>
+                          <div class="flex items-center gap-1 bg-slate-50 border border-slate-100 rounded-lg px-1 py-0.5">
+                            <button onclick="changeCartQuantity('${item.id}', -1)" class="font-bold px-1.5 hover:text-emerald-700">-</button>
+                            <span class="font-bold">${item.quantity}</span>
+                            <button onclick="changeCartQuantity('${item.id}', 1)" class="font-bold px-1.5 hover:text-emerald-700">+</button>
+                          </div>
+                        </div>
+                    </div>`;
+                    container.innerHTML += row;
+                });
+
+                document.getElementById('cart-total-bags').innerText = totalItems + " ব্যাগ";
+                document.getElementById('cart-total-price').innerText = formatPrice(totalPrice);
+            }
+            lucide.createIcons();
+        }
+
+        // Feed E-commerce checkout
+        function openCheckoutModal() {
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('checkout-payable-price').innerText = formatPrice(totalPrice);
+            document.getElementById('checkout-success-container').classList.add('hidden');
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            document.getElementById('checkout-modal').classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+            document.getElementById('checkout-modal').classList.remove('flex');
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            document.getElementById('checkout-success-container').classList.remove('hidden');
+            document.getElementById('checkout-success-container').classList.add('flex');
+            setTimeout(() => {
+                cart = [];
+                updateCartUI();
+                closeCheckoutModal();
+                document.getElementById('checkout-name').value = '';
+                document.getElementById('checkout-phone').value = '';
+                document.getElementById('checkout-address').value = '';
+            }, 3500);
+        }
+
+        // Contact Form conditional logic
+        function togglePurposeConditionalFields() {
+            const purpose = document.getElementById('reg-purpose').value;
+            const group = document.getElementById('medical-courses-selector-group');
+            if(purpose === 'medical_training') {
+                group.classList.remove('hidden');
+            } else {
+                group.classList.add('hidden');
+            }
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contact-success-msg').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('contact-success-msg').classList.add('hidden');
+                document.getElementById('reg-name').value = '';
+                document.getElementById('reg-phone').value = '';
+                document.getElementById('reg-notes').value = '';
+                document.getElementById('reg-purpose').value = 'land_buy';
+                togglePurposeConditionalFields();
+            }, 4000);
+        }
+
+        // Document Legal Verification Mock API search
+        function handleDocVerification(e) {
+            e.preventDefault();
+            const idInput = document.getElementById('verification-serial').value;
+            if(!idInput) return;
+
+            // Mock database latency
+            setTimeout(() => {
+                document.getElementById('res-id').innerText = idInput;
+                document.getElementById('res-owner').innerText = "মোঃ মফিজুল ইসলাম ও অংশীদারগণ";
+                document.getElementById('res-mouza').innerText = "ধীরাশ্রম, জে.এল নং- ৪৮";
+                document.getElementById('res-status').innerText = "হালনাগাদ নামজারি ও জমাভাগ সম্পন্ন (শতভাগ ক্লিয়ার খতিয়ান)";
+                document.getElementById('res-agent').innerText = "এভারগ্রিন লিগ্যাল উইং টিম (উইথ ইনভেস্টিগেশন রিপোর্ট)";
+                
+                document.getElementById('verification-result-container').classList.remove('hidden');
+                lucide.createIcons();
+            }, 600);
+        }
+
+        // Utilities Helper
+        function formatPrice(amount) {
+            return new Intl.NumberFormat('bn-BD').format(amount) + " ৳";
+        }
+    </script>
+</body>
+</html>
