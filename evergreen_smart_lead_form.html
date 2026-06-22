@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>এভারগ্রিন স্মার্ট লিড ও ফলো-আপ ফর্ম</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bengali -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Brand Logo Component -->
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-emerald-800 text-white rounded-xl shadow-md">
+                        <svg class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-lg font-black tracking-tight text-emerald-900 block leading-none">EVERGREEN</span>
+                        <span class="text-[10px] font-bold text-emerald-700 tracking-wider">REAL ESTATE MEDIA</span>
+                    </div>
+                </div>
+                <!-- Navigation Tabs -->
+                <div class="flex items-center gap-2">
+                    <button onclick="switchTab('form-tab')" id="btn-form-tab" class="px-3 py-2 text-xs md:text-sm font-bold rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-100 transition-all flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        লাইভ ফর্ম
+                    </button>
+                    <button onclick="switchTab('sheet-tab')" id="btn-sheet-tab" class="px-3 py-2 text-xs md:text-sm font-bold rounded-xl text-slate-600 hover:bg-slate-100 transition-all flex items-center gap-1.5">
+                        <svg class="h-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>
+                        গুগল শিট সেটআপ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex-grow">
+        
+        <!-- ================= TAB 1: DYNAMIC FORM SECTION ================= -->
+        <div id="form-tab-content" class="space-y-8 animate-fade-in">
+            <div class="text-center space-y-2">
+                <div class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+                    <span>বিশ্বাস • স্বচ্ছতা • সফল বিনিয়োগ</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">এভারগ্রিন স্মার্ট লিড ও ফলো-আপ পোর্টাল</h1>
+                <p class="text-slate-500 max-w-xl mx-auto text-xs sm:text-sm">জমি ক্রয়-বিক্রয়, এগ্রো-পোল্ট্রি ও মৎস্য খামার প্রশিক্ষণ, মেডিকেল কোর্স অথবা পশু খাদ্যের ডিস্ট্রিবিউটরশিপের জন্য ডাইনামিক ফলো-আপ ফর্ম।</p>
+            </div>
+
+            <!-- Lead Form Box -->
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden max-w-2xl mx-auto">
+                
+                <!-- Progress Indicator -->
+                <div class="bg-slate-50 border-b border-slate-100 px-6 py-4 flex justify-between items-center">
+                    <span id="step-indicator" class="text-xs font-bold uppercase tracking-wider text-emerald-700">ধাপ ১/৪: প্রাথমিক তথ্য</span>
+                    <div class="flex gap-1.5" id="step-dots">
+                        <div class="h-2 w-8 rounded-full bg-emerald-700 transition-all duration-300"></div>
+                        <div class="h-2 w-2 rounded-full bg-slate-200 transition-all duration-300"></div>
+                        <div class="h-2 w-2 rounded-full bg-slate-200 transition-all duration-300"></div>
+                        <div class="h-2 w-2 rounded-full bg-slate-200 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Form Element -->
+                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-8 space-y-6">
+                    
+                    <!-- STEP 1: CONTACT INFORMATION -->
+                    <div id="step-1" class="space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-slate-800">যোগাযোগের প্রাথমিক তথ্য</h3>
+                            <p class="text-xs text-slate-400">অনুগ্রহ করে আপনার সঠিক তথ্য দিন যাতে আমাদের প্রতিনিধি দ্রুত যোগাযোগ করতে পারেন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আপনার নাম <span class="text-rose-500">*</span></label>
+                                <input type="text" id="fullName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: মোঃ জাহিদুল ইসলাম">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">মোবাইল নম্বর <span class="text-rose-500">*</span></label>
+                                    <input type="tel" id="phoneNumber" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: ০১৯৪৭-৮২২৩৯৯">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">ইমেইল আইডি (ঐচ্ছিক)</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="example@evergreen.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আপনার বর্তমান জেলা/ঠিকানা</label>
+                                <input type="text" id="currentAddress" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: গাজীপুর সদর, ঢাকা">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: PURPOSE SELECTION (Dynamic Hub) -->
+                    <div id="step-2" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-slate-800">আপনার মূল উদ্দেশ্য নির্বাচন করুন</h3>
+                            <p class="text-xs text-slate-400">এভারগ্রিন গ্রুপের কোন সার্ভিসের সাথে আপনি যুক্ত হতে চান?</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-3">
+                            
+                            <!-- Path 1: Land Buyer -->
+                            <label class="relative flex p-4 border rounded-2xl cursor-pointer hover:border-emerald-500 transition-all bg-slate-50 hover:bg-slate-100/50 [&:has(input:checked)]:border-emerald-700 [&:has(input:checked)]:bg-emerald-50/50">
+                                <input type="radio" name="purpose" value="Buyer" checked required class="sr-only" onchange="updateDynamicPath(this.value)">
+                                <div class="flex gap-4 items-center">
+                                    <div class="p-2.5 bg-emerald-100 rounded-xl text-emerald-800">
+                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-slate-800 block text-sm">আমি নিরাপদ জমি / প্লট কিনতে চাই</span>
+                                        <span class="text-xs text-slate-500">গাজীপুর ও সংলগ্ন অঞ্চলের বন্যামুক্ত যাচাইকৃত বাণিজ্যিক বা শিল্প জমি।</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Path 2: Land Seller -->
+                            <label class="relative flex p-4 border rounded-2xl cursor-pointer hover:border-emerald-500 transition-all bg-slate-50 hover:bg-slate-100/50 [&:has(input:checked)]:border-emerald-700 [&:has(input:checked)]:bg-emerald-50/50">
+                                <input type="radio" name="purpose" value="Seller" class="sr-only" onchange="updateDynamicPath(this.value)">
+                                <div class="flex gap-4 items-center">
+                                    <div class="p-2.5 bg-amber-100 rounded-xl text-amber-800">
+                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-slate-800 block text-sm">আমি আমার জমি বিক্রি / ডেভেলপমেন্ট করতে চাই</span>
+                                        <span class="text-xs text-slate-500">আপনার জমিটি দ্রুত ও আইনি জটিলতাহীন প্রক্রিয়ায় বিক্রি বা লিস্টিং করুন।</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Path 3: Agro Training Candidate -->
+                            <label class="relative flex p-4 border rounded-2xl cursor-pointer hover:border-emerald-500 transition-all bg-slate-50 hover:bg-slate-100/50 [&:has(input:checked)]:border-emerald-700 [&:has(input:checked)]:bg-emerald-50/50">
+                                <input type="radio" name="purpose" value="Agro" class="sr-only" onchange="updateDynamicPath(this.value)">
+                                <div class="flex gap-4 items-center">
+                                    <div class="p-2.5 bg-blue-100 rounded-xl text-blue-800">
+                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.246.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-slate-800 block text-sm">আমি কৃষি, পোল্ট্রি বা মৎস্য খামার প্রশিক্ষণ নিতে চাই</span>
+                                        <span class="text-xs text-slate-500">বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশনের ৪ মাস মেয়াদী কোর্স।</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Path 4: Medical Training Candidate -->
+                            <label class="relative flex p-4 border rounded-2xl cursor-pointer hover:border-emerald-500 transition-all bg-slate-50 hover:bg-slate-100/50 [&:has(input:checked)]:border-emerald-700 [&:has(input:checked)]:bg-emerald-50/50">
+                                <input type="radio" name="purpose" value="Medical" class="sr-only" onchange="updateDynamicPath(this.value)">
+                                <div class="flex gap-4 items-center">
+                                    <div class="p-2.5 bg-rose-100 rounded-xl text-rose-800">
+                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-slate-800 block text-sm">আমি পল্লী চিকিৎসা প্রশিক্ষণ কোর্স করতে চাই</span>
+                                        <span class="text-xs text-slate-500">বাংলাদেশ পল্লী চিকিৎসা সেন্টারের LMAF, Paramedical, RMP বা DMS কোর্স।</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Path 5: Deshbondhu Feed distributor/buyer -->
+                            <label class="relative flex p-4 border rounded-2xl cursor-pointer hover:border-emerald-500 transition-all bg-slate-50 hover:bg-slate-100/50 [&:has(input:checked)]:border-emerald-700 [&:has(input:checked)]:bg-emerald-50/50">
+                                <input type="radio" name="purpose" value="Feed" class="sr-only" onchange="updateDynamicPath(this.value)">
+                                <div class="flex gap-4 items-center">
+                                    <div class="p-2.5 bg-indigo-100 rounded-xl text-indigo-800">
+                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-slate-800 block text-sm">আমি দেশবন্ধু ফিড কিনতে বা ডিস্ট্রিবিউটরশিপ নিতে চাই</span>
+                                        <span class="text-xs text-slate-500">পোল্ট্রি, মাছ ও মৎস্য ফিড কারখানার অফিশিয়াল ডিলারশিপ ও পাইকারি অর্ডার।</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <!-- STEP 3-BUYER: BUYER SPECIFIC QUESTIONS -->
+                    <div id="step-3-buyer" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-emerald-800">কাঙ্ক্ষিত জমির বিবরণ (ক্রেতা)</h3>
+                            <p class="text-xs text-slate-400">আপনার স্বপ্নের বা প্রকল্পের জমির সঠিক ক্যাটাগরি ও এরিয়া নির্বাচন করুন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">জমির প্রকারভেদ</label>
+                                <select id="buyerLandType" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Residential Plot">আবাসিক প্লট (Residential Plot)</option>
+                                    <option value="Commercial Space/Plot">বাণিজ্যিক স্পেস বা হাইওয়ে প্লট (Commercial Plot)</option>
+                                    <option value="Industrial Factory Plot">শিল্প কারখানা গড়ে তোলার উপযোগী জমি (Industrial Plot)</option>
+                                    <option value="Agro Project Land">পোল্ট্রি/ডেইরি বা মৎস্য খামার জমি (Agro Project)</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">পছন্দের এলাকা/লোকেশান (গাজীপুর জোন)</label>
+                                    <select id="buyerLocation" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="Gazipur Sadar">গাজীপুর সদর মেট্রো এলাকা</option>
+                                        <option value="Sreepur Maowna">শ্রীপুর মাওনা এলাকা</option>
+                                        <option value="Kaliakoir">কালিয়াকৈর অঞ্চল</option>
+                                        <option value="Kaliganj">কালীগঞ্জ পূর্বাচল হাইওয়ে জোন</option>
+                                        <option value="Kapasia">কাপাসিয়া বন্যামুক্ত জোন</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">বাজেট সীমা</label>
+                                    <select id="buyerBudget" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="10-30 Lakhs">১০ - ৩০ লক্ষ টাকা</option>
+                                        <option value="30-50 Lakhs">৩০ - ৫০ লক্ষ টাকা</option>
+                                        <option value="50 Lakhs - 1 Crore">৫০ লক্ষ - ১ কোটি টাকা</option>
+                                        <option value="1 Crore+">১ কোটি টাকার উপরে</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">প্রত্যাশিত জমির পরিমাণ (শতাংশ হিসেবে)</label>
+                                <input type="text" id="buyerLandSize" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: ১০ শতাংশ বা ২ বিঘা">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3-SELLER: SELLER SPECIFIC QUESTIONS -->
+                    <div id="step-3-seller" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-amber-800">বিক্রয়যোগ্য জমির বিবরণ (বিক্রেতা)</h3>
+                            <p class="text-xs text-slate-400">আপনার জমিটির দলিলাদি এবং আনুমানিক ডিমান্ডের তথ্য দিন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">জমির ক্যাটাগরি</label>
+                                    <select id="sellerLandType" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="Residential">আবাসিক জমি</option>
+                                        <option value="Commercial">বাণিজ্যিক / হাইওয়ে সাইড</option>
+                                        <option value="Industrial">শিল্প কারখানা উপযোগী (উঁচু লাল মাটি)</option>
+                                        <option value="Low-lying/Agro">নিচু / নাল জমি</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">মোট পরিমাণ (শতাংশ)</label>
+                                    <input type="text" id="sellerLandSize" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: ১৫ শতাংশ">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">জমির সঠিক লোকেশন ও মৌজা</label>
+                                <input type="text" id="sellerAddress" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: মৌজা ধীরাশ্রম, জে.এল নং- ৪৮, গাজীপুর">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আপনার প্রত্যাশিত মোট মূল্য (ডিমান্ড)</label>
+                                <input type="text" id="sellerPrice" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: ৩৫ লক্ষ টাকা মোট">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3-AGRO: AGRO COURSE QUESTIONS -->
+                    <div id="step-3-agro" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-emerald-800">খামার প্রশিক্ষণ কোর্স নির্বাচন (কৃষি উইং)</h3>
+                            <p class="text-xs text-slate-400">বাংলাদেশ পোল্ট্রি অ্যান্ড ফিশ ফার্মার্স অ্যাসোসিয়েশন অনুমোদিত ব্যবহারিক কোর্স।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">পছন্দের প্রশিক্ষণ কোর্স</label>
+                                <select id="agroCourse" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Poultry Management">আধুনিক পোল্ট্রি খামার ব্যবস্থাপনা (৪ মাস)</option>
+                                    <option value="Fish Farming">মাছ চাষ ও মৎস্য ব্যবস্থাপনা (৪ মাস)</option>
+                                    <option value="Cattle Primary Treatment">গবাদিপশু পালন ও প্রাথমিক চিকিৎসা (৪ মাস)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আপনার প্রধান লক্ষ্য</label>
+                                <select id="agroGoal" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Self Employment">নতুন খামার শুরু করে আত্মকর্মসংস্থান</option>
+                                    <option value="Expansion">বিদ্যমান খামারের উন্নয়ন ও আধুনিকীকরণ</option>
+                                    <option value="Bank Loan Support">প্রশিক্ষণ সার্টিফিকেট নিয়ে ব্যাংক লোনের আবেদন</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3-MEDICAL: MEDICAL COURSE QUESTIONS -->
+                    <div id="step-3-medical" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-rose-800">পল্লী চিকিৎসা প্রশিক্ষণ (মেডিকেল উইং)</h3>
+                            <p class="text-xs text-slate-400">বাংলাদেশ পল্লী চিকিৎসা সেন্টারের অধীনে ক্যারিয়ার ও দক্ষতা উন্নয়নমূলক কোর্স।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">কাঙ্ক্ষিত মেডিকেল কোর্স</label>
+                                <select id="medicalCourse" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="LMAF">LMAF (১ বছর মেয়াদী - প্রাথমিক চিকিৎসা ও মা-শিশু স্বাস্থ্য)</option>
+                                    <option value="Paramedical">Community Paramedic (২ বছর মেয়াদী - ডিপ্লোমা)</option>
+                                    <option value="RMP">RMP (৬ মাস মেয়াদী - রেজিস্টার্ড মেডিকেল প্র্যাক্টিশনার)</option>
+                                    <option value="DMS/DMSS">DMS/DMSS (৩ বছর মেয়াদী - ডিপ্লোমা ইন মেডিসিন অ্যান্ড সার্জারি)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">সর্বশেষ শিক্ষাগত যোগ্যতা</label>
+                                <select id="medicalEdu" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="SSC">এসএসসি / সমমান</option>
+                                    <option value="HSC">এইচএসসি / সমমান</option>
+                                    <option value="Graduate">স্নাতক / ডিগ্রি</option>
+                                    <option value="Under-SSC">৮ম শ্রেণী পাস (RMP কোর্সের জন্য প্রযোজ্য)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3-FEED: DESHBONDHU FEED QUESTIONS -->
+                    <div id="step-3-feed" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-indigo-800">দেশবন্ধু ফিড ডিস্ট্রিবিউটরশিপ ও অর্ডার</h3>
+                            <p class="text-xs text-slate-400">উচ্চ-মানের মৎস্য ও পোল্ট্রি সুষম খাদ্যের বাণিজ্যিক ডিস্ট্রিবিউশন জোন নির্বাচন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আপনার আগ্রহের ক্ষেত্র</label>
+                                <select id="feedInterests" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Dealer/Distributorship">অফিশিয়াল ডিলারশিপ / ডিস্ট্রিবিউটরশিপ নিতে চাই</option>
+                                    <option value="Bulk Purchase">আমাদের খামারের জন্য পাইকারি দরে ফিড অর্ডার দিতে চাই</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">ফিডের প্রকারভেদ</label>
+                                    <select id="feedType" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="Broiler/Poultry">পোল্ট্রি ফিড (স্টার্টার/গ্রোয়ার)</option>
+                                        <option value="Floating Fish Feed">ভাসমান মৎস্য খাদ্য (ফিশ ফিড)</option>
+                                        <option value="Cattle Feed">গবাদি পশুর খাদ্য (ডেইরি গোল্ড)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আনুমানিক মাসিক চাহিদা (কেজি/বস্তা)</label>
+                                    <input type="text" id="feedQty" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm" placeholder="যেমন: ৫০০ কেজি বা ১০০ বস্তা">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4-BUYER: BUYER FOLLOW-UP QUESTIONS -->
+                    <div id="step-4-buyer" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-emerald-800">স্মার্ট ফলো-আপ প্রশ্নাবলী (ক্রেতা)</h3>
+                            <p class="text-xs text-slate-400">আপনাকে সর্বোত্তম আইনানুগ পরামর্শ দিতে আমাদের এই তথ্যগুলো প্রয়োজন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">অর্থ পরিশোধের পরিকল্পনা কীভাবে করছেন?</label>
+                                <select id="buyerFinancing" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Self-financed/Cash">সম্পূর্ণ নিজস্ব ক্যাশ পেমেন্ট</option>
+                                    <option value="Bank/Home Loan">ব্যাংক হোম লোন (Pre-approved)</option>
+                                    <option value="Home Loan-Inquiry">হোম লোন প্রসেস করতে হবে (পরামর্শ লাগবে)</option>
+                                    <option value="Installments">কোম্পানির কিস্তি সুবিধা (Installments)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">প্রপার্টি ক্রয়ের সিদ্ধান্ত নেওয়ার প্রধান সময়সীমা</label>
+                                <select id="buyerTimeframe" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Urgent">১ মাসের মধ্যে রেজিস্ট্রেশন করতে চাই (Urgent)</option>
+                                    <option value="3 Months">৩ মাসের মধ্যে কিনতে ইচ্ছুক</option>
+                                    <option value="6 Months">আপাতত জমি খুঁজছি এবং বাজার পরিস্থিতি দেখছি</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4-SELLER: SELLER FOLLOW-UP QUESTIONS -->
+                    <div id="step-4-seller" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-amber-800">স্মার্ট ফলো-আপ প্রশ্নাবলী (বিক্রেতা)</h3>
+                            <p class="text-xs text-slate-400">জমির আইনি কাগজপত্র ও বিক্রয়ের ত্বরান্বিত প্রক্রিয়া নিশ্চিত করতে দিন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">জমির মিউটেশন/নামজারি স্ট্যাটাস</label>
+                                <select id="sellerMutation" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Yes">সর্বশেষ বছরের খাজনা দাখিলা ও নামজারি সম্পূর্ণ আপ-টু-ডেট</option>
+                                    <option value="In Progress">মিউটেশন প্রসেসিং-এ রয়েছে</option>
+                                    <option value="No">নামজারি করা হয়নি, শুধু পৈত্রিক / ওয়ারিশ সূত্রে পাওয়া</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">আমাদের লিগ্যাল ভেরিফিকেশন টিমকে কাগজপত্র পাঠাতে প্রস্তুত?</label>
+                                <select id="sellerVerificationReady" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Yes">হ্যাঁ, ভেরিফিকেশনের জন্য হোয়াটসঅ্যাপে দলিলের কপি পাঠাতে পারবো</option>
+                                    <option value="Later">সরাসরি দেখা করে বা অফিসে গিয়ে দলিলাদি প্রদর্শন করবো</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4-AGRO/MEDICAL: STUDENT FOLLOW-UP QUESTIONS -->
+                    <div id="step-4-training" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-emerald-800">ফলো-আপ ও ক্লাস শিডিউল সুবিধা</h3>
+                            <p class="text-xs text-slate-400">ভর্তি প্রক্রিয়া ও সেশন নির্বাচন সুগম করতে সাহায্য করুন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">ক্লাস করার সুবিধাজনক সময়</label>
+                                    <select id="trainingSchedule" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="Regular Batch">সাপ্তাহিক নিয়মিত ক্লাস ব্যাচ (Regular)</option>
+                                        <option value="Weekend Batch">শুধুমাত্র শুক্রবার/শনিবার (Weekend)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">হোস্টেল বা আবাসন সুবিধা প্রয়োজন?</label>
+                                    <select id="trainingHostel" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                        <option value="No">না, নিজের বাসা থেকে ক্লাস করবো</option>
+                                        <option value="Yes">হ্যাঁ, ঢাকা বা গাজীপুরের বাইরে থেকে আবাসন সুবিধা লাগবে</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4-FEED: FEED EXTRA OPTIONS -->
+                    <div id="step-4-feed" class="hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-indigo-800">ডেলিভারি ও টেকনিক্যাল সাপোর্ট</h3>
+                            <p class="text-xs text-slate-400">ফিড ডিস্ট্রিবিউশন প্রক্রিয়া দ্রুততর করতে বিবরণ দিন।</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">ডেলিভারি নেওয়ার প্রধান পয়েন্ট (গাজীপুর জোন)</label>
+                                <select id="feedDeliveryPoint" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm bg-white">
+                                    <option value="Chourasta Distribution Hub">গাজীপুর চৌরাস্তা ডিস্ট্রিবিউশন হাব</option>
+                                    <option value="Bagher Bazar Point">বাঘের বাজার মেইন ডিলিং পয়েন্ট</option>
+                                    <option value="Farm Delivery">সরাসরি আমার নিজস্ব খামারে হোম ডেলিভারি চাই</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Button Controls -->
+                    <div class="flex justify-between items-center pt-6 border-t border-slate-100">
+                        <button type="button" id="prevBtn" onclick="navigateStep(-1)" class="px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-slate-500 hover:bg-slate-100 transition-all invisible">
+                            পেছনে যান (Back)
+                        </button>
+                        <button type="button" id="nextBtn" onclick="navigateStep(1)" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-800 text-white hover:bg-emerald-900 shadow-md shadow-emerald-800/10 transition-all flex items-center gap-1.5">
+                            <span>পরবর্তী ধাপ</span>
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+
+                </form>
+
+                <!-- Loading Overlay -->
+                <div id="loadingOverlay" class="hidden absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col justify-center items-center">
+                    <div class="w-10 h-10 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-xs font-bold text-emerald-800 mt-4">ডেটা আপলোড হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</p>
+                </div>
+
+                <!-- Custom Inline Success Message Box -->
+                <div id="successCard" class="hidden p-8 sm:p-10 text-center space-y-6 animate-fade-in">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-800 rounded-full flex items-center justify-center mx-auto shadow-inner">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-black text-slate-800">আপনার তথ্য সফলভাবে গৃহীত হয়েছে!</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                            এভারগ্রিন রিয়েল এস্টেট মিডিয়া ও গ্রুপ ইকোসিস্টেমে আপনার চাহিদাটি সফলভাবে নথিভুক্ত করা হয়েছে। আমাদের দায়িত্বপ্রাপ্ত প্রতিনিধি দ্রুত আপনার সাথে ফোনে যোগাযোগ করবেন।
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-left max-w-sm mx-auto text-xs space-y-1.5">
+                        <p class="font-bold text-slate-700">জমা দেওয়া তথ্যের সংক্ষিপ্ত বিবরণ:</p>
+                        <p>👤 <strong class="text-slate-800">নাম:</strong> <span id="summaryName">-</span></p>
+                        <p>📞 <strong class="text-slate-800">মোবাইল:</strong> <span id="summaryPhone">-</span></p>
+                        <p>📍 <strong class="text-slate-800">উদ্দেশ্য:</strong> <span id="summaryPurpose">-</span></p>
+                    </div>
+                    <button onclick="resetSmartForm()" class="px-6 py-3 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs shadow-md transition-all">
+                        নতুন করে ফর্ম পূরণ করুন
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: SHEET CONNECTION SECTION ================= -->
+        <div id="sheet-tab-content" class="hidden space-y-8 animate-fade-in">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold text-slate-900">গুগল শিট কানেকশন গাইড (Setup Panel)</h2>
+                <p class="text-slate-500 max-w-xl mx-auto text-xs sm:text-sm">এই ফর্মের সকল লিড সরাসরি আপনার পার্সোনাল গুগল স্প্রেডশিটে জমা করতে নিচের পদ্ধতিটি অনুসরণ করুন।</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Setup Steps Guide (7 cols) -->
+                <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        কানেকশন করার সহজ ধাপসমূহ
+                    </h3>
+
+                    <div class="space-y-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                        <p><strong>ধাপ ১:</strong> একটি নতুন <a href="https://sheets.google.com" target="_blank" class="text-emerald-700 font-bold underline">Google Sheet</a> তৈরি করুন এবং প্রথম লাইনে (Row 1) নিম্নলিখিত কলামের শিরোনামগুলো হুবহু ক্রমানুসারে লিখুন:</p>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 font-mono text-[10px] md:text-xs text-slate-700 overflow-x-auto">
+                            Timestamp, Name, Phone, Email, CurrentAddress, Purpose, DetailCategory, SpecDetails, Financials, DynamicQty, ExtraNotes
+                        </div>
+
+                        <p><strong>ধাপ ২:</strong> গুগল শিটের ওপরের মেনু থেকে <strong>Extensions > Apps Script</strong> নির্বাচন করুন।</p>
+                        
+                        <p><strong>ধাপ ৩:</strong> সেখানে থাকা পুরোনো কোড মুছে ফেলে ডান পাশের কপি করা কোডটি পেস্ট করুন এবং সেভ আইকনে ক্লিক করে <strong>Deploy > New Deployment</strong>-এ যান।</p>
+                        
+                        <p><strong>ধাপ ৪:</strong> সিলেক্ট টাইপ আইকনে ক্লিক করে <strong>Web App</strong> সিলেক্ট করুন। <em>Execute as: Me</em> এবং <em>Who has access: Anyone</em> নির্ধারণ করে <strong>Deploy</strong> চাপুন।</p>
+                        
+                        <p><strong>ধাপ ৫:</strong> গুগল থেকে অ্যাক্সেস অনুমোদন (Authorize Access) সম্পূর্ণ করে প্রাপ্ত **Web App URL**টি কপি করে নিচের বক্সে পেস্ট করে সেভ করুন।</p>
+                    </div>
+                </div>
+
+                <!-- Code Copy and Web App URL Form (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Code Block -->
+                    <div class="bg-slate-900 text-slate-100 p-5 rounded-3xl shadow-xl relative overflow-hidden">
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-3">
+                            <span class="text-xs text-emerald-400 font-bold tracking-wider font-mono">Apps Script Code</span>
+                            <button onclick="copyAppsScriptCode()" class="text-[10px] bg-emerald-800 text-white font-bold px-2.5 py-1.5 rounded-lg hover:bg-emerald-700 transition-all flex items-center gap-1">
+                                কপি কোড
+                            </button>
+                        </div>
+                        <pre class="text-[9px] font-mono leading-relaxed overflow-x-auto max-h-48 text-slate-300 select-all" id="appsScriptCode">
+function doPost(e) {
+  try {
+    var doc = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = doc.getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    sheet.appendRow([
+      new Date(),
+      data.fullName || "",
+      data.phoneNumber || "",
+      data.email || "",
+      data.currentAddress || "",
+      data.purpose || "",
+      data.detailCategory || "",
+      data.specDetails || "",
+      data.financials || "",
+      data.dynamicQty || "",
+      data.extraNotes || ""
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"status": "success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({"status": "error", "message": err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}</pre>
+                        <p id="copyFeedback" class="hidden text-[10px] text-emerald-400 font-bold mt-2 text-right">কোডটি সফলভাবে ক্লিপবোর্ডে কপি হয়েছে!</p>
+                    </div>
+
+                    <!-- URL Configuration Panel -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                        <h4 class="font-black text-slate-800 text-sm">ওয়েব অ্যাপ URL লিংক করুন</h4>
+                        <div class="space-y-3">
+                            <input type="url" id="sheetUrlInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="https://script.google.com/macros/s/.../exec">
+                            <div class="flex gap-2">
+                                <button onclick="saveSheetUrl()" class="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs py-3 rounded-xl transition-all">
+                                    লিংক সেভ করুন
+                                </button>
+                                <button onclick="clearSheetUrl()" class="px-4 py-3 border border-slate-200 hover:bg-slate-50 text-slate-500 rounded-xl transition-all text-xs">
+                                    রিমুভ
+                                </button>
+                            </div>
+                            <p id="saveFeedback" class="text-[10px] text-center font-bold text-emerald-700 hidden">URL সফলভাবে সেভ হয়েছে এবং ফর্মটির সাথে সংযুক্ত রয়েছে!</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400 space-y-1">
+            <p class="font-bold text-emerald-800 uppercase">EVERGREEN REAL ESTATE MEDIA GROUP</p>
+            <p>© 2026 Evergreen Real Estate Media. সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- JS Logic Block -->
+    <script>
+        // Tab system
+        function switchTab(tabId) {
+            const formTabBtn = document.getElementById('btn-form-tab');
+            const sheetTabBtn = document.getElementById('btn-sheet-tab');
+            const formContent = document.getElementById('form-tab-content');
+            const sheetContent = document.getElementById('sheet-tab-content');
+
+            if (tabId === 'form-tab') {
+                formTabBtn.className = "px-3 py-2 text-xs md:text-sm font-bold rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-100 transition-all flex items-center gap-1.5";
+                sheetTabBtn.className = "px-3 py-2 text-xs md:text-sm font-bold rounded-xl text-slate-600 hover:bg-slate-100 transition-all flex items-center gap-1.5";
+                formContent.classList.remove('hidden');
+                sheetContent.classList.add('hidden');
+            } else {
+                sheetTabBtn.className = "px-3 py-2 text-xs md:text-sm font-bold rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-100 transition-all flex items-center gap-1.5";
+                formTabBtn.className = "px-3 py-2 text-xs md:text-sm font-bold rounded-xl text-slate-600 hover:bg-slate-100 transition-all flex items-center gap-1.5";
+                sheetContent.classList.remove('hidden');
+                formContent.classList.add('hidden');
+            }
+        }
+
+        // Save Spreadsheet webhook url
+        function saveSheetUrl() {
+            const urlInput = document.getElementById('sheetUrlInput').value.trim();
+            const feedback = document.getElementById('saveFeedback');
+            if (urlInput) {
+                localStorage.setItem('evergreen_sheet_url', urlInput);
+                feedback.classList.remove('hidden');
+                setTimeout(() => feedback.classList.add('hidden'), 3000);
+            }
+        }
+
+        function clearSheetUrl() {
+            localStorage.removeItem('evergreen_sheet_url');
+            document.getElementById('sheetUrlInput').value = '';
+            alert('সংযুক্ত গুগল শিট লিংকটি মুছে ফেলা হয়েছে।');
+        }
+
+        // Copy apps script fallback code securely using document.execCommand
+        function copyAppsScriptCode() {
+            const codeText = document.getElementById('appsScriptCode').innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = codeText;
+            textarea.style.position = 'fixed'; // prevent scrolling
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const feedback = document.getElementById('copyFeedback');
+                feedback.classList.remove('hidden');
+                setTimeout(() => feedback.classList.add('hidden'), 3000);
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Load existing sheet url if saved in storage
+        window.onload = function() {
+            const savedUrl = localStorage.getItem('evergreen_sheet_url');
+            if (savedUrl) {
+                document.getElementById('sheetUrlInput').value = savedUrl;
+            }
+        };
+
+        // Lead form state machine
+        let currentStep = 1;
+        let selectedPurpose = 'Buyer'; // Buyer, Seller, Agro, Medical, Feed
+
+        function updateDynamicPath(purposeValue) {
+            selectedPurpose = purposeValue;
+        }
+
+        function navigateStep(direction) {
+            // Validate step 1 before going forward
+            if (currentStep === 1 && direction === 1) {
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phoneNumber').value.trim();
+                if (!name || !phone) {
+                    alert('দয়া করে আপনার নাম এবং মোবাইল নম্বর প্রদান করুন।');
+                    return;
+                }
+            }
+
+            // Hide currently active steps
+            hideAllSteps();
+
+            // Increment / Decrement
+            currentStep += direction;
+
+            // Cap limits
+            if (currentStep < 1) currentStep = 1;
+            if (currentStep > 4) currentStep = 4;
+
+            // Render current step UI
+            renderStepUI();
+        }
+
+        function hideAllSteps() {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.add('hidden');
+            
+            // Step 3 components
+            document.getElementById('step-3-buyer').classList.add('hidden');
+            document.getElementById('step-3-seller').classList.add('hidden');
+            document.getElementById('step-3-agro').classList.add('hidden');
+            document.getElementById('step-3-medical').classList.add('hidden');
+            document.getElementById('step-3-feed').classList.add('hidden');
+
+            // Step 4 components
+            document.getElementById('step-4-buyer').classList.add('hidden');
+            document.getElementById('step-4-seller').classList.add('hidden');
+            document.getElementById('step-4-training').classList.add('hidden');
+            document.getElementById('step-4-feed').classList.add('hidden');
+        }
+
+        function renderStepUI() {
+            // Indicators
+            const stepIndicator = document.getElementById('step-indicator');
+            const stepDots = document.getElementById('step-dots');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Update title text and dot colors
+            if (currentStep === 1) {
+                stepIndicator.innerText = "ধাপ ১/৪: প্রাথমিক তথ্য";
+                prevBtn.classList.add('invisible');
+                nextBtn.innerHTML = `<span>পরবর্তী ধাপ</span> <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>`;
+                document.getElementById('step-1').classList.remove('hidden');
+            } else if (currentStep === 2) {
+                stepIndicator.innerText = "ধাপ ২/৪: উদ্দেশ্য নির্বাচন";
+                prevBtn.classList.remove('invisible');
+                nextBtn.innerHTML = `<span>পরবর্তী ধাপ</span> <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>`;
+                document.getElementById('step-2').classList.remove('hidden');
+            } else if (currentStep === 3) {
+                stepIndicator.innerText = "ধাপ ৩/৪: সুনির্দিষ্ট তথ্য";
+                prevBtn.classList.remove('invisible');
+                nextBtn.innerHTML = `<span>পরবর্তী ধাপ</span> <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>`;
+                
+                // Show purpose based step 3
+                if (selectedPurpose === 'Buyer') document.getElementById('step-3-buyer').classList.remove('hidden');
+                else if (selectedPurpose === 'Seller') document.getElementById('step-3-seller').classList.remove('hidden');
+                else if (selectedPurpose === 'Agro') document.getElementById('step-3-agro').classList.remove('hidden');
+                else if (selectedPurpose === 'Medical') document.getElementById('step-3-medical').classList.remove('hidden');
+                else if (selectedPurpose === 'Feed') document.getElementById('step-3-feed').classList.remove('hidden');
+            } else if (currentStep === 4) {
+                stepIndicator.innerText = "ধাপ ৪/৪: ফলো-আপ গাইড";
+                prevBtn.classList.remove('invisible');
+                nextBtn.innerHTML = `<span>সাবমিট করুন</span> <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+                
+                // Show purpose based step 4
+                if (selectedPurpose === 'Buyer') document.getElementById('step-4-buyer').classList.remove('hidden');
+                else if (selectedPurpose === 'Seller') document.getElementById('step-4-seller').classList.remove('hidden');
+                else if (selectedPurpose === 'Agro' || selectedPurpose === 'Medical') document.getElementById('step-4-training').classList.remove('hidden');
+                else if (selectedPurpose === 'Feed') document.getElementById('step-4-feed').classList.remove('hidden');
+                
+                // Intercept nextBtn type on last step to submit form
+                nextBtn.onclick = function() {
+                    document.getElementById('leadForm').requestSubmit();
+                }
+                return; // Prevent standard progression overriding on step 4
+            }
+
+            // Standard next button progression on intermediate steps
+            nextBtn.onclick = function() {
+                navigateStep(1);
+            };
+
+            // Dot indicators update
+            let dotsHtml = '';
+            for (let i = 1; i <= 4; i++) {
+                if (i === currentStep) {
+                    dotsHtml += `<div class="h-2 w-8 rounded-full bg-emerald-700 transition-all duration-300"></div>`;
+                } else {
+                    dotsHtml += `<div class="h-2 w-2 rounded-full bg-slate-200 transition-all duration-300"></div>`;
+                }
+            }
+            stepDots.innerHTML = dotsHtml;
+        }
+
+        // Submitting Lead Info
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.remove('hidden');
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const currentAddress = document.getElementById('currentAddress').value.trim();
+
+            // Construct detail payloads dynamically based on path choice
+            let detailCategory = "";
+            let specDetails = "";
+            let financials = "";
+            let dynamicQty = "";
+            let extraNotes = "";
+
+            if (selectedPurpose === 'Buyer') {
+                detailCategory = document.getElementById('buyerLandType').value;
+                specDetails = document.getElementById('buyerLocation').value;
+                financials = document.getElementById('buyerBudget').value;
+                dynamicQty = document.getElementById('buyerLandSize').value;
+                extraNotes = "অর্থ পরিশোধ: " + document.getElementById('buyerFinancing').value + ", সময়সীমা: " + document.getElementById('buyerTimeframe').value;
+            } else if (selectedPurpose === 'Seller') {
+                detailCategory = document.getElementById('sellerLandType').value;
+                specDetails = document.getElementById('sellerAddress').value;
+                financials = document.getElementById('sellerPrice').value;
+                dynamicQty = document.getElementById('sellerLandSize').value;
+                extraNotes = "মিউটেশন স্ট্যাটাস: " + document.getElementById('sellerMutation').value + ", ডকুমেন্ট শেয়ার: " + document.getElementById('sellerVerificationReady').value;
+            } else if (selectedPurpose === 'Agro') {
+                detailCategory = document.getElementById('agroCourse').value;
+                specDetails = "লক্ষ্য: " + document.getElementById('agroGoal').value;
+                financials = "কোর্স ফি";
+                dynamicQty = "১ জন";
+                extraNotes = "ক্লাস শিডিউল: " + document.getElementById('trainingSchedule').value + ", হোস্টেল সুবিধা: " + document.getElementById('trainingHostel').value;
+            } else if (selectedPurpose === 'Medical') {
+                detailCategory = document.getElementById('medicalCourse').value;
+                specDetails = "শিক্ষাগত যোগ্যতা: " + document.getElementById('medicalEdu').value;
+                financials = "কোর্স ফি";
+                dynamicQty = "১ জন";
+                extraNotes = "ক্লাস শিডিউল: " + document.getElementById('trainingSchedule').value + ", হোস্টেল সুবিধা: " + document.getElementById('trainingHostel').value;
+            } else if (selectedPurpose === 'Feed') {
+                detailCategory = document.getElementById('feedInterests').value;
+                specDetails = document.getElementById('feedType').value;
+                financials = "কারখানা ডিলিং মূল্য";
+                dynamicQty = document.getElementById('feedQty').value;
+                extraNotes = "ডেলিভারি পয়েন্ট: " + document.getElementById('feedDeliveryPoint').value;
+            }
+
+            const payload = {
+                fullName,
+                phoneNumber,
+                email,
+                currentAddress,
+                purpose: selectedPurpose,
+                detailCategory,
+                specDetails,
+                financials,
+                dynamicQty,
+                extraNotes
+            };
+
+            const sheetUrl = localStorage.getItem('evergreen_sheet_url');
+
+            if (sheetUrl) {
+                // Post data to google spreadsheet webhook URL with exponential backoff (Retry up to 5 times)
+                postDataWithRetry(sheetUrl, payload, 0);
+            } else {
+                // No link saved: complete mock submission
+                setTimeout(() => {
+                    loadingOverlay.classList.add('hidden');
+                    renderSuccessScreen(payload);
+                }, 1000);
+            }
+        }
+
+        // Fetch wrapper with dynamic retry loop
+        function postDataWithRetry(url, data, retryCount) {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const maxRetries = 5;
+            const delays = [1000, 2000, 4000, 8000, 16000];
+
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors', // standard apps script deployment CORS bypass
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                // Since 'no-cors' mode won't return status, we transition directly
+                loadingOverlay.classList.add('hidden');
+                renderSuccessScreen(data);
+            })
+            .catch((error) => {
+                if (retryCount < maxRetries) {
+                    setTimeout(() => {
+                        postDataWithRetry(url, data, retryCount + 1);
+                    }, delays[retryCount]);
+                } else {
+                    loadingOverlay.classList.add('hidden');
+                    alert('দুঃখিত! ডেটা ট্রান্সমিশন ব্যর্থ হয়েছে। দয়া করে আপনার নেটওয়ার্ক চেক করুন অথবা স্প্রেডশিট লিঙ্কটি যাচাই করুন।');
+                }
+            });
+        }
+
+        function renderSuccessScreen(data) {
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('step-indicator').parentElement.classList.add('hidden');
+            
+            const successCard = document.getElementById('successCard');
+            successCard.classList.remove('hidden');
+
+            document.getElementById('summaryName').innerText = data.fullName;
+            document.getElementById('summaryPhone').innerText = data.phoneNumber;
+            
+            let bengaliPurpose = "জমি ক্রয়";
+            if (data.purpose === 'Seller') bengaliPurpose = "জমি বিক্রয় / লিস্টিং";
+            else if (data.purpose === 'Agro') bengaliPurpose = "কৃষি প্রশিক্ষণ কোর্স";
+            else if (data.purpose === 'Medical') bengaliPurpose = "পল্লী চিকিৎসা প্রশিক্ষণ";
+            else if (data.purpose === 'Feed') bengaliPurpose = "দেশবন্ধু ফিড ডিলিং";
+
+            document.getElementById('summaryPurpose').innerText = `${bengaliPurpose} (${data.detailCategory})`;
+        }
+
+        function resetSmartForm() {
+            document.getElementById('leadForm').reset();
+            document.getElementById('leadForm').classList.remove('hidden');
+            document.getElementById('step-indicator').parentElement.classList.remove('hidden');
+            document.getElementById('successCard').classList.add('hidden');
+            
+            currentStep = 1;
+            selectedPurpose = 'Buyer';
+            
+            hideAllSteps();
+            renderStepUI();
+        }
+    </script>
+</body>
+</html>
